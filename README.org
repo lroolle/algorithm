@@ -1,0 +1,31 @@
+#+TITLE: Readme
+#+DATE: 2020-09-12 13:14
+
+#+EXPORT_FILE_NAME: readme
+#+HUGO_WEIGHT: auto
+#+HUGO_BASE_DIR: ~/G/blog
+#+HUGO_AUTO_SET_LASTMOD: t
+#+HUGO_SECTION: notes
+#+HUGO_CATEGORIES: notes
+#+HUGO_TAGS: notes Algorithms Datastructures
+
+* 数据结构与算法
+** 数据结构
+*** Strings 字符串
+**** 字典树
+**** 后缀树
+*** Array 数组
+*** Linked-Array 链表
+**** 单、双向链表
+**** 跳舞链
+**** 快慢指针
+*** Queue
+*** Stack
+*** Tree
+*** Graph
+*** Heap
+*** HashTable(Map)
+
+** 算法
+** 数学
+** Coding(手撸代码)
