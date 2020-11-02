@@ -1,0 +1,122 @@
+#+TITLE: 0242. Valid Anagram
+#+DATE: 2020-09-14 23:47
+#+LAST_MODIFIED: 2020-09-14 23:53
+#+STARTUP: overview
+#+HUGO_WEIGHT: auto
+#+HUGO_AUTO_SET_LASTMOD: t
+#+EXPORT_FILE_NAME: 0242-valid-anagram
+#+HUGO_BASE_DIR:~/G/blog
+#+HUGO_SECTION: leetcode
+#+HUGO_CATEGORIES:leetcode
+#+HUGO_TAGS: Leetcode Algorithms Sort HashTable
+
+* [[https://leetcode.com/problems/valid-anagram/][0242. Valid Anagram]]
+:PROPERTIES:
+:VISIBILITY: children
+:END:
+
+#+begin_quote
+Easy U:249 D:0 AC:61.4% F:0.2077836962
+#+end_quote
+
+Given two strings /s/ and /t /, write a function to determine if /t/ is
+an anagram of /s/.
+
+*Example 1:*
+
+#+BEGIN_EXAMPLE
+  Input: s = "anagram", t = "nagaram"
+  Output: true
+#+END_EXAMPLE
+
+*Example 2:*
+
+#+BEGIN_EXAMPLE
+  Input: s = "rat", t = "car"
+  Output: false
+#+END_EXAMPLE
+
+*Note:*\\
+You may assume the string contains only lowercase alphabets.
+
+*Follow up:*\\
+What if the inputs contain unicode characters? How would you adapt your
+solution to such case?
+** Topic Tags
+1. [[https://leetcode.com/tag/sort/][Sort]]
+2. [[https://leetcode.com/tag/hash-table/][Hash Table]]
+
+** Similar Problems
+*** [[https://leetcode.com/problems/group-anagrams/][0049. Group Anagrams]]
+*** [[https://leetcode.com/problems/palindrome-permutation/][0266. Palindrome Permutation]]
+*** [[https://leetcode.com/problems/find-all-anagrams-in-a-string/][0438. Find All Anagrams in a String]]
+** Companies
+*** 1. [[https://leetcode-cn.com/company/amazon/][亚马逊 Amazon]] * 7
+*** 1. [[https://leetcode-cn.com/company/facebook/][Facebook 脸书]] * 6
+*** 1. [[https://leetcode-cn.com/company/google/][谷歌 Google]] * 3
+*** 1. [[https://leetcode-cn.com/company/microsoft/][微软 Microsoft]] * 3
+*** 1. [[https://leetcode-cn.com/company/apple/][苹果 Apple]] * 3
+*** 2. [[https://leetcode-cn.com/company/oracle/][甲骨文 Oracle]] * 4
+*** 2. [[https://leetcode-cn.com/company/bytedance/][字节跳动]] * 3
+*** 2. [[https://leetcode-cn.com/company/paypal/][PayPal]] * 2
+*** 2. [[https://leetcode-cn.com/company/goldman-sachs/][高盛集团 Goldman Sachs]] * 2
+*** 3. [[https://leetcode-cn.com/company/bloomberg/][彭博 Bloomberg]] * 31
+*** 3. [[https://leetcode-cn.com/company/uber/][优步 Uber]] * 9
+*** 3. [[https://leetcode-cn.com/company/yahoo/][雅虎 Yahoo]] * 4
+*** 3. [[https://leetcode-cn.com/company/baidu/][百度]] * 3
+*** 3. [[https://leetcode-cn.com/company/huawei/][华为]] * 2
+* [[https://leetcode-cn.com/problems/valid-anagram/][0242. 有效的字母异位词]]
+:PROPERTIES:
+:VISIBILITY: folded
+:END:
+
+#+begin_quote
+Easy U:249 D:0 AC:61.4% F:0.2077836962
+#+end_quote
+
+给定两个字符串 /s/ 和 /t/ ，编写一个函数来判断 /t/ 是否是 /s/
+的字母异位词。
+
+*示例 1:*
+
+#+BEGIN_EXAMPLE
+  输入: s = "anagram", t = "nagaram"
+  输出: true
+#+END_EXAMPLE
+
+*示例 2:*
+
+#+BEGIN_EXAMPLE
+  输入: s = "rat", t = "car"
+  输出: false
+#+END_EXAMPLE
+
+*说明:*\\
+你可以假设字符串只包含小写字母。
+
+*进阶:*\\
+如果输入字符串包含 unicode
+字符怎么办？你能否调整你的解法来应对这种情况？
+** Topic Tags
+1. [[https://leetcode-cn.com/tag/sort/][排序]]
+2. [[https://leetcode-cn.com/tag/hash-table/][哈希表]]
+
+** Similar Problems
+*** [[https://leetcode-cn.com/problems/group-anagrams/][0049. 字母异位词分组]]
+*** [[https://leetcode-cn.com/problems/palindrome-permutation/][0266. 回文排列]]
+*** [[https://leetcode-cn.com/problems/find-all-anagrams-in-a-string/][0438. 找到字符串中所有字母异位词]]
+** Companies
+*** 1. [[https://leetcode-cn.com/company/amazon/][亚马逊 Amazon]] * 7
+*** 1. [[https://leetcode-cn.com/company/facebook/][Facebook 脸书]] * 6
+*** 1. [[https://leetcode-cn.com/company/google/][谷歌 Google]] * 3
+*** 1. [[https://leetcode-cn.com/company/microsoft/][微软 Microsoft]] * 3
+*** 1. [[https://leetcode-cn.com/company/apple/][苹果 Apple]] * 3
+*** 2. [[https://leetcode-cn.com/company/oracle/][甲骨文 Oracle]] * 4
+*** 2. [[https://leetcode-cn.com/company/bytedance/][字节跳动]] * 3
+*** 2. [[https://leetcode-cn.com/company/paypal/][PayPal]] * 2
+*** 2. [[https://leetcode-cn.com/company/goldman-sachs/][高盛集团 Goldman Sachs]] * 2
+*** 3. [[https://leetcode-cn.com/company/bloomberg/][彭博 Bloomberg]] * 31
+*** 3. [[https://leetcode-cn.com/company/uber/][优步 Uber]] * 9
+*** 3. [[https://leetcode-cn.com/company/yahoo/][雅虎 Yahoo]] * 4
+*** 3. [[https://leetcode-cn.com/company/baidu/][百度]] * 3
+*** 3. [[https://leetcode-cn.com/company/huawei/][华为]] * 2

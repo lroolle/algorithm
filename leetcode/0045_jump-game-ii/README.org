@@ -1,0 +1,129 @@
+#+TITLE: 0045. Jump Game II
+#+DATE: 2020-09-18 19:26
+#+LAST_MODIFIED: 2020-09-18 19:26
+#+STARTUP: overview
+#+HUGO_WEIGHT: auto
+#+HUGO_AUTO_SET_LASTMOD: t
+#+EXPORT_FILE_NAME: 0045-jump-game-ii
+#+HUGO_BASE_DIR:~/G/blog
+#+HUGO_SECTION: leetcode
+#+HUGO_CATEGORIES:leetcode
+#+HUGO_TAGS: Leetcode Algorithms Greedy Array
+
+* Solutions
+** Solution I: Jump Further
+#+BEGIN_EXAMPLE
+Input: [2, 3, 1, 1, 4, 2, 3]
+
+Step1: 2 -> [2,  [3, 1], 1, 4, 2, 3]  furthest: 3
+                 ︎⇧
+               Furthest
+
+Step2: 3 -> [...    [1, 1, 4], 2, 3]  furthest: 4
+                          ︎⇧
+                        Furthest
+
+Step3: 4 -> [...             [2, 3]]  furthest: 3 (GAME OVER)
+                                 ⇧
+                              Furthest
+#+END_EXAMPLE
+
+
+* [[https://leetcode.com/problems/jump-game-ii/][0045. Jump Game II]]
+:PROPERTIES:
+:VISIBILITY: children
+:END:
+
+#+begin_quote
+Hard U:696 D:0 AC:37.6% F:1.2039968598
+#+end_quote
+
+Given an array of non-negative integers, you are initially positioned at
+the first index of the array.
+
+Each element in the array represents your maximum jump length at that
+position.
+
+Your goal is to reach the last index in the minimum number of jumps.
+
+*Example:*
+
+#+BEGIN_EXAMPLE
+  Input: [2,3,1,1,4]
+  Output: 2
+  Explanation: The minimum number of jumps to reach the last index is 2.
+      Jump 1 step from index 0 to 1, then 3 steps to the last index.
+#+END_EXAMPLE
+
+*Note:*
+
+You can assume that you can always reach the last index.
+** Topic Tags
+1. [[https://leetcode.com/tag/greedy/][Greedy]]
+2. [[https://leetcode.com/tag/array/][Array]]
+
+** Similar Problems
+*** [[https://leetcode.com/problems/jump-game/][0055. Jump Game]]
+** Companies
+*** 1. [[https://leetcode-cn.com/company/amazon/][亚马逊 Amazon]] * 16
+*** 1. [[https://leetcode-cn.com/company/bytedance/][字节跳动]] * 14
+*** 1. [[https://leetcode-cn.com/company/huawei/][华为]] * 7
+*** 1. [[https://leetcode-cn.com/company/microsoft/][微软 Microsoft]] * 7
+*** 1. [[https://leetcode-cn.com/company/google/][谷歌 Google]] * 4
+*** 2. [[https://leetcode-cn.com/company/vivo/][vivo]] * 7
+*** 2. [[https://leetcode-cn.com/company/adobe/][奥多比 Adobe]] * 3
+*** 2. [[https://leetcode-cn.com/company/alibaba/][阿里巴巴]] * 2
+*** 2. [[https://leetcode-cn.com/company/baidu/][百度]] * 2
+*** 3. [[https://leetcode-cn.com/company/tencent/][腾讯 Tencent]] * 3
+*** 3. [[https://leetcode-cn.com/company/uber/][优步 Uber]] * 3
+*** 3. [[https://leetcode-cn.com/company/toutiao/][今日头条]] * 3
+*** 3. [[https://leetcode-cn.com/company/oracle/][甲骨文 Oracle]] * 3
+*** 3. [[https://leetcode-cn.com/company/netease/][网易]] * 2
+* [[https://leetcode-cn.com/problems/jump-game-ii/][0045. 跳跃游戏 II]]
+:PROPERTIES:
+:VISIBILITY: folded
+:END:
+
+#+begin_quote
+Hard U:696 D:0 AC:37.6% F:1.2039968598
+#+end_quote
+
+给定一个非负整数数组，你最初位于数组的第一个位置。
+
+数组中的每个元素代表你在该位置可以跳跃的最大长度。
+
+你的目标是使用最少的跳跃次数到达数组的最后一个位置。
+
+*示例:*
+
+#+BEGIN_EXAMPLE
+  输入: [2,3,1,1,4]
+  输出: 2
+  解释: 跳到最后一个位置的最小跳跃数是 2。
+       从下标为 0 跳到下标为 1 的位置，跳 1 步，然后跳 3 步到达数组的最后一个位置。
+#+END_EXAMPLE
+
+*说明:*
+
+假设你总是可以到达数组的最后一个位置。
+** Topic Tags
+1. [[https://leetcode-cn.com/tag/greedy/][贪心算法]]
+2. [[https://leetcode-cn.com/tag/array/][数组]]
+
+** Similar Problems
+*** [[https://leetcode-cn.com/problems/jump-game/][0055. 跳跃游戏]]
+** Companies
+*** 1. [[https://leetcode-cn.com/company/amazon/][亚马逊 Amazon]] * 16
+*** 1. [[https://leetcode-cn.com/company/bytedance/][字节跳动]] * 14
+*** 1. [[https://leetcode-cn.com/company/huawei/][华为]] * 7
+*** 1. [[https://leetcode-cn.com/company/microsoft/][微软 Microsoft]] * 7
+*** 1. [[https://leetcode-cn.com/company/google/][谷歌 Google]] * 4
+*** 2. [[https://leetcode-cn.com/company/vivo/][vivo]] * 7
+*** 2. [[https://leetcode-cn.com/company/adobe/][奥多比 Adobe]] * 3
+*** 2. [[https://leetcode-cn.com/company/alibaba/][阿里巴巴]] * 2
+*** 2. [[https://leetcode-cn.com/company/baidu/][百度]] * 2
+*** 3. [[https://leetcode-cn.com/company/tencent/][腾讯 Tencent]] * 3
+*** 3. [[https://leetcode-cn.com/company/uber/][优步 Uber]] * 3
+*** 3. [[https://leetcode-cn.com/company/toutiao/][今日头条]] * 3
+*** 3. [[https://leetcode-cn.com/company/oracle/][甲骨文 Oracle]] * 3
+*** 3. [[https://leetcode-cn.com/company/netease/][网易]] * 2

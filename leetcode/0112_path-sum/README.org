@@ -1,0 +1,180 @@
+#+TITLE: 0112. Path Sum
+#+DATE: 2020-09-26 09:19
+#+LAST_MODIFIED: 2020-09-26 09:19
+#+STARTUP: overview
+#+HUGO_WEIGHT: auto
+#+HUGO_AUTO_SET_LASTMOD: t
+#+EXPORT_FILE_NAME: 0112-path-sum
+#+HUGO_BASE_DIR:~/G/blog
+#+HUGO_SECTION: leetcode
+#+HUGO_CATEGORIES:leetcode
+#+HUGO_TAGS: Leetcode Algorithms Tree DepthfirstSearch
+
+* Solutions
+** Solution I: DFS, Subtraction
+
+#+BEGIN_EXAMPLE
+22 -        5
+           / \
+17 -      4   8
+         /   / \
+13 -    11  13  4
+       /  \      \
+ 2 -  7    2      1
+#+END_EXAMPLE
+
+The problem is: visit each node until the leaf node, and calculate the sum of path.
+
+To minimize the problem, if current node is the leaf node, then we just need to
+compare ~sum == currentNode.Val~.
+
+So, by recursive traverse down to each node of the tree, when reached to the leaf
+node, compare the /remaining/ ~sum~ == ~node.Val~, return ~true~ / ~false~.
+
+In which by subtract from the parent node's value we get the /remaining/ ~sum~.
+
+#+BEGIN_SRC go :exports both :imports "fmt"
+func hasPathSum(root *TreeNode, sum int) bool {
+	if root == nil {
+		return false
+	}
+	if root.Left == nil && root.Right == nil {
+		return root.Val == sum
+	}
+	return hasPathSum(root.Left, sum-root.Val) || hasPathSum(root.Right, sum-root.Val)
+}
+#+END_SRC
+
+** Solution II: DFS + Backtracking
+
+In Solution I, we traverse all over the tree to find if *one path* satisfy the
+condition, which is not necessary, we just return if any path satisfy.
+
+The ~dfs~ looks like this:
+#+BEGIN_SRC go :exports both :imports "fmt"
+func dfs(node *TreeNode, remainSum int) bool {
+    if node == nil {
+        return false
+    }
+    if isLeaf(node) && remainSum == node.Val {
+        return true
+    }
+    if isLeaf(node) {
+        return false
+    }
+    if node.Left != nil && dfs(node.Left, remainSum-node.Val) {
+        return true
+    }
+    if node.Right != nil && dfs(node.Right, remainSum-node.Val) {
+        return true
+    }
+    return false
+}
+
+#+END_SRC
+
+** Solution III: Stack
+
+* [[https://leetcode.com/problems/path-sum/][0112. Path Sum]]
+:PROPERTIES:
+:VISIBILITY: children
+:END:
+
+#+begin_quote
+Easy U:434 D:0 AC:51.1% F:0.6452099311
+#+end_quote
+
+Given a binary tree and a sum, determine if the tree has a root-to-leaf
+path such that adding up all the values along the path equals the given
+sum.
+
+*Note:* A leaf is a node with no children.
+
+*Example:*
+
+Given the below binary tree and =sum = 22=,
+
+#+BEGIN_EXAMPLE
+        5
+       / \
+      4   8
+     /   / \
+    11  13  4
+   /  \      \
+  7    2      1
+#+END_EXAMPLE
+
+return true, as there exist a root-to-leaf path =5->4->11->2= which sum
+is 22.
+** Topic Tags
+1. [[https://leetcode.com/tag/tree/][Tree]]
+2. [[https://leetcode.com/tag/depth-first-search/][Depth-first Search]]
+
+** Similar Problems
+*** [[https://leetcode.com/problems/path-sum-ii/][0113. Path Sum II]]
+*** [[https://leetcode.com/problems/binary-tree-maximum-path-sum/][0124. Binary Tree Maximum Path Sum]]
+*** [[https://leetcode.com/problems/sum-root-to-leaf-numbers/][0129. Sum Root to Leaf Numbers]]
+*** [[https://leetcode.com/problems/path-sum-iii/][0437. Path Sum III]]
+*** [[https://leetcode.com/problems/path-sum-iv/][0666. Path Sum IV]]
+** Companies
+*** 1. [[https://leetcode-cn.com/company/bytedance/][字节跳动]] * 18
+*** 1. [[https://leetcode-cn.com/company/amazon/][亚马逊 Amazon]] * 5
+*** 1. [[https://leetcode-cn.com/company/microsoft/][微软 Microsoft]] * 3
+*** 1. [[https://leetcode-cn.com/company/facebook/][Facebook 脸书]] * 3
+*** 1. [[https://leetcode-cn.com/company/oracle/][甲骨文 Oracle]] * 2
+*** 2. [[https://leetcode-cn.com/company/adobe/][奥多比 Adobe]] * 2
+*** 3. [[https://leetcode-cn.com/company/apple/][苹果 Apple]] * 4
+*** 3. [[https://leetcode-cn.com/company/alibaba/][阿里巴巴]] * 4
+*** 3. [[https://leetcode-cn.com/company/bloomberg/][彭博 Bloomberg]] * 4
+*** 3. [[https://leetcode-cn.com/company/tencent/][腾讯 Tencent]] * 3
+*** 3. [[https://leetcode-cn.com/company/mi/][小米]] * 2
+* [[https://leetcode-cn.com/problems/path-sum/][0112. 路径总和]]
+:PROPERTIES:
+:VISIBILITY: folded
+:END:
+
+#+begin_quote
+Easy U:434 D:0 AC:51.1% F:0.6452099311
+#+end_quote
+
+给定一个二叉树和一个目标和，判断该树中是否存在根节点到叶子节点的路径，这条路径上所有节点值相加等于目标和。
+
+*说明:* 叶子节点是指没有子节点的节点。
+
+*示例:* \\
+给定如下二叉树，以及目标和 =sum = 22=，
+
+#+BEGIN_EXAMPLE
+                5
+               / \
+              4   8
+             /   / \
+            11  13  4
+           /  \      \
+          7    2      1
+#+END_EXAMPLE
+
+返回 =true=, 因为存在目标和为 22 的根节点到叶子节点的路径
+=5->4->11->2=。
+** Topic Tags
+1. [[https://leetcode-cn.com/tag/tree/][树]]
+2. [[https://leetcode-cn.com/tag/depth-first-search/][深度优先搜索]]
+
+** Similar Problems
+*** [[https://leetcode-cn.com/problems/path-sum-ii/][0113. 路径总和 II]]
+*** [[https://leetcode-cn.com/problems/binary-tree-maximum-path-sum/][0124. 二叉树中的最大路径和]]
+*** [[https://leetcode-cn.com/problems/sum-root-to-leaf-numbers/][0129. 求根到叶子节点数字之和]]
+*** [[https://leetcode-cn.com/problems/path-sum-iii/][0437. 路径总和 III]]
+*** [[https://leetcode-cn.com/problems/path-sum-iv/][0666. 路径和 IV]]
+** Companies
+*** 1. [[https://leetcode-cn.com/company/bytedance/][字节跳动]] * 18
+*** 1. [[https://leetcode-cn.com/company/amazon/][亚马逊 Amazon]] * 5
+*** 1. [[https://leetcode-cn.com/company/microsoft/][微软 Microsoft]] * 3
+*** 1. [[https://leetcode-cn.com/company/facebook/][Facebook 脸书]] * 3
+*** 1. [[https://leetcode-cn.com/company/oracle/][甲骨文 Oracle]] * 2
+*** 2. [[https://leetcode-cn.com/company/adobe/][奥多比 Adobe]] * 2
+*** 3. [[https://leetcode-cn.com/company/apple/][苹果 Apple]] * 4
+*** 3. [[https://leetcode-cn.com/company/alibaba/][阿里巴巴]] * 4
+*** 3. [[https://leetcode-cn.com/company/bloomberg/][彭博 Bloomberg]] * 4
+*** 3. [[https://leetcode-cn.com/company/tencent/][腾讯 Tencent]] * 3
+*** 3. [[https://leetcode-cn.com/company/mi/][小米]] * 2

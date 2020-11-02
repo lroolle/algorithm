@@ -1,0 +1,158 @@
+#+TITLE: 0206. Reverse Linked List
+#+DATE: 2020-09-15 17:59
+#+LAST_MODIFIED: 2020-09-15 18:04
+#+STARTUP: overview
+#+HUGO_WEIGHT: auto
+#+HUGO_AUTO_SET_LASTMOD: t
+#+EXPORT_FILE_NAME: 0206-reverse-linked-list
+#+HUGO_BASE_DIR:~/G/blog
+#+HUGO_SECTION: leetcode
+#+HUGO_CATEGORIES:leetcode
+#+HUGO_TAGS: Leetcode Algorithms LinkedList
+
+* Solution
+
+** Solution 1: Iterative
+
+
+#+BEGIN_EXAMPLE
+                1 ----> 2 -> 3 -> 4  ->5->null
+      (null)    ⬆       ⬆
+Step1: prev    cur    next(=curr.Next)
+
+Step2: prev <- cur
+                ⬆       ⬆     ⬆
+Step2: null <- prev    cur  next
+
+Step3: null <- prev <- cur  next
+                             ⬆     ⬆
+Step2: null <-  1   <- prev cur  next
+
+...
+#+END_EXAMPLE
+
+Pointers, as showed above, First get ~next = curr.Next~, then assign ~curr.Next
+= prev~ to reverse the node, move ~prev~ to ~curr~, ~curr~ to ~next~ for next loop
+to reverse next node.
+
+The termination condition is ~next == null~, we've moved
+~curr~ to ~next~, so when ~curr == null~ the loop ends.
+
+- TC: O(n)
+- SC: O(1)
+
+  
+** Solution 2: Recursive
+
+To understand about recursively, we need to to think the problem *in reverse*.
+
+Considering the rest part of list has already reversed, for example:
+
+#+BEGIN_EXAMPLE
+ 1  -> 2 <- 3 <- 4 <-5
+ ⬆     ⬆
+head  next
+#+END_EXAMPLE
+
+If we want to change ~1 -> 2~ to ~1 <- 2~, we'll need to assign
+
+#+BEGIN_EXAMPLE
+head.Next.Next = head
+#+END_EXAMPLE
+
+Explanation: ~head.Next~ is the ~next~ node, then ~next.Next = head~ reverses the node 2 point to 1.
+
+The termination condition is ~head == null~ or ~head.Next == null~
+
+And don't forget after assign ~head.Next.Next == head~, you should also assign
+~heaa.Next = null~
+
+
+* [[https://leetcode.com/problems/reverse-linked-list/][0206. Reverse Linked List]]
+:PROPERTIES:
+:VISIBILITY: children
+:END:
+
+#+begin_quote
+Easy U:1218 D:0 AC:70.5% F:1.279160554
+#+end_quote
+
+Reverse a singly linked list.
+
+*Example:*
+
+#+BEGIN_EXAMPLE
+  Input: 1->2->3->4->5->NULL
+  Output: 5->4->3->2->1->NULL
+#+END_EXAMPLE
+
+*Follow up:*
+
+A linked list can be reversed either iteratively or recursively. Could
+you implement both?
+** Topic Tags
+1. [[https://leetcode.com/tag/linked-list/][Linked List]]
+
+** Similar Problems
+*** [[https://leetcode.com/problems/reverse-linked-list-ii/][0092. Reverse Linked List II]]
+*** [[https://leetcode.com/problems/binary-tree-upside-down/][0156. Binary Tree Upside Down]]
+*** [[https://leetcode.com/problems/palindrome-linked-list/][0234. Palindrome Linked List]]
+** Companies
+*** 1. [[https://leetcode-cn.com/company/bytedance/][字节跳动]] * 44
+*** 1. [[https://leetcode-cn.com/company/tencent/][腾讯 Tencent]] * 12
+*** 1. [[https://leetcode-cn.com/company/google/][谷歌 Google]] * 11
+*** 1. [[https://leetcode-cn.com/company/facebook/][Facebook 脸书]] * 9
+*** 1. [[https://leetcode-cn.com/company/apple/][苹果 Apple]] * 9
+*** 2. [[https://leetcode-cn.com/company/adobe/][奥多比 Adobe]] * 9
+*** 2. [[https://leetcode-cn.com/company/mi/][小米]] * 5
+*** 2. [[https://leetcode-cn.com/company/goldman-sachs/][高盛集团 Goldman Sachs]] * 5
+*** 2. [[https://leetcode-cn.com/company/iqiyi/][爱奇艺]] * 4
+*** 2. [[https://leetcode-cn.com/company/nvidia/][英伟达 NVIDIA]] * 4
+*** 3. [[https://leetcode-cn.com/company/bloomberg/][彭博 Bloomberg]] * 10
+*** 3. [[https://leetcode-cn.com/company/cisco/][思科 Cisco]] * 9
+*** 3. [[https://leetcode-cn.com/company/yahoo/][雅虎 Yahoo]] * 7
+*** 3. [[https://leetcode-cn.com/company/uber/][优步 Uber]] * 6
+*** 3. [[https://leetcode-cn.com/company/huawei/][华为]] * 6
+* [[https://leetcode-cn.com/problems/reverse-linked-list/][0206. 反转链表]]
+:PROPERTIES:
+:VISIBILITY: folded
+:END:
+
+#+begin_quote
+Easy U:1218 D:0 AC:70.5% F:1.279160554
+#+end_quote
+
+反转一个单链表。
+
+*示例:*
+
+#+BEGIN_EXAMPLE
+  输入: 1->2->3->4->5->NULL
+  输出: 5->4->3->2->1->NULL
+#+END_EXAMPLE
+
+*进阶:*\\
+你可以迭代或递归地反转链表。你能否用两种方法解决这道题？
+** Topic Tags
+1. [[https://leetcode-cn.com/tag/linked-list/][链表]]
+
+** Similar Problems
+*** [[https://leetcode-cn.com/problems/reverse-linked-list-ii/][0092. 反转链表 II]]
+*** [[https://leetcode-cn.com/problems/binary-tree-upside-down/][0156. 上下翻转二叉树]]
+*** [[https://leetcode-cn.com/problems/palindrome-linked-list/][0234. 回文链表]]
+** Companies
+*** 1. [[https://leetcode-cn.com/company/bytedance/][字节跳动]] * 44
+*** 1. [[https://leetcode-cn.com/company/tencent/][腾讯 Tencent]] * 12
+*** 1. [[https://leetcode-cn.com/company/google/][谷歌 Google]] * 11
+*** 1. [[https://leetcode-cn.com/company/facebook/][Facebook 脸书]] * 9
+*** 1. [[https://leetcode-cn.com/company/apple/][苹果 Apple]] * 9
+*** 2. [[https://leetcode-cn.com/company/adobe/][奥多比 Adobe]] * 9
+*** 2. [[https://leetcode-cn.com/company/mi/][小米]] * 5
+*** 2. [[https://leetcode-cn.com/company/goldman-sachs/][高盛集团 Goldman Sachs]] * 5
+*** 2. [[https://leetcode-cn.com/company/iqiyi/][爱奇艺]] * 4
+*** 2. [[https://leetcode-cn.com/company/nvidia/][英伟达 NVIDIA]] * 4
+*** 3. [[https://leetcode-cn.com/company/bloomberg/][彭博 Bloomberg]] * 10
+*** 3. [[https://leetcode-cn.com/company/cisco/][思科 Cisco]] * 9
+*** 3. [[https://leetcode-cn.com/company/yahoo/][雅虎 Yahoo]] * 7
+*** 3. [[https://leetcode-cn.com/company/uber/][优步 Uber]] * 6
+*** 3. [[https://leetcode-cn.com/company/huawei/][华为]] * 6

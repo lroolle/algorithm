@@ -1,0 +1,116 @@
+#+TITLE: 0617. Merge Two Binary Trees
+#+DATE: 2020-09-23 20:06
+#+LAST_MODIFIED: 2020-09-23 20:06
+#+STARTUP: overview
+#+HUGO_WEIGHT: auto
+#+HUGO_AUTO_SET_LASTMOD: t
+#+EXPORT_FILE_NAME: 0617-merge-two-binary-trees
+#+HUGO_BASE_DIR:~/G/blog
+#+HUGO_SECTION: leetcode
+#+HUGO_CATEGORIES:leetcode
+#+HUGO_TAGS: Leetcode Algorithms Tree
+
+* [[https://leetcode.com/problems/merge-two-binary-trees/][0617. Merge Two Binary Trees]]
+:PROPERTIES:
+:VISIBILITY: children
+:END:
+
+#+begin_quote
+Easy U:514 D:0 AC:78.2% F:0.178018453
+#+end_quote
+
+Given two binary trees and imagine that when you put one of them to
+cover the other, some nodes of the two trees are overlapped while the
+others are not.
+
+You need to merge them into a new binary tree. The merge rule is that if
+two nodes overlap, then sum node values up as the new value of the
+merged node. Otherwise, the NOT null node will be used as the node of
+new tree.
+
+*Example 1:*
+
+#+BEGIN_EXAMPLE
+  Input: 
+      Tree 1                     Tree 2
+
+            1                         2                             
+           / \                       / \                            
+          3   2                     1   3                        
+         /                           \   \                      
+        5                             4   7                  
+  Output: 
+  Merged tree:
+           3
+          / \
+         4   5
+        / \   \ 
+       5   4   7
+#+END_EXAMPLE
+
+ 
+
+*Note:* The merging process must start from the root nodes of both
+trees.
+** Topic Tags
+1. [[https://leetcode.com/tag/tree/][Tree]]
+** Companies
+*** 1. [[https://leetcode-cn.com/company/apple/][苹果 Apple]] * 2
+*** 1. [[https://leetcode-cn.com/company/facebook/][Facebook 脸书]] * 2
+*** 2. [[https://leetcode-cn.com/company/amazon/][亚马逊 Amazon]] * 3
+*** 2. [[https://leetcode-cn.com/company/adobe/][奥多比 Adobe]] * 3
+*** 2. [[https://leetcode-cn.com/company/huawei/][华为]] * 3
+*** 2. [[https://leetcode-cn.com/company/bytedance/][字节跳动]] * 2
+*** 3. [[https://leetcode-cn.com/company/tencent/][腾讯 Tencent]] * 3
+*** 3. [[https://leetcode-cn.com/company/bloomberg/][彭博 Bloomberg]] * 2
+*** 3. [[https://leetcode-cn.com/company/microsoft/][微软 Microsoft]] * 2
+*** 3. [[https://leetcode-cn.com/company/oracle/][甲骨文 Oracle]] * 2
+*** 3. [[https://leetcode-cn.com/company/guazi/][瓜子二手车直卖网]] * 0
+* [[https://leetcode-cn.com/problems/merge-two-binary-trees/][0617. 合并二叉树]]
+:PROPERTIES:
+:VISIBILITY: folded
+:END:
+
+#+begin_quote
+Easy U:514 D:0 AC:78.2% F:0.178018453
+#+end_quote
+
+给定两个二叉树，想象当你将它们中的一个覆盖到另一个上时，两个二叉树的一些节点便会重叠。
+
+你需要将他们合并为一个新的二叉树。合并的规则是如果两个节点重叠，那么将他们的值相加作为节点合并后的新值，否则*不为 *NULL
+的节点将直接作为新二叉树的节点。
+
+*示例 1:*
+
+#+BEGIN_EXAMPLE
+  输入: 
+      Tree 1                     Tree 2                  
+            1                         2                             
+           / \                       / \                            
+          3   2                     1   3                        
+         /                           \   \                      
+        5                             4   7                  
+  输出: 
+  合并后的树:
+           3
+          / \
+         4   5
+        / \   \ 
+       5   4   7
+#+END_EXAMPLE
+
+*注意:* 合并必须从两个树的根节点开始。
+** Topic Tags
+1. [[https://leetcode-cn.com/tag/tree/][树]]
+** Companies
+*** 1. [[https://leetcode-cn.com/company/apple/][苹果 Apple]] * 2
+*** 1. [[https://leetcode-cn.com/company/facebook/][Facebook 脸书]] * 2
+*** 2. [[https://leetcode-cn.com/company/amazon/][亚马逊 Amazon]] * 3
+*** 2. [[https://leetcode-cn.com/company/adobe/][奥多比 Adobe]] * 3
+*** 2. [[https://leetcode-cn.com/company/huawei/][华为]] * 3
+*** 2. [[https://leetcode-cn.com/company/bytedance/][字节跳动]] * 2
+*** 3. [[https://leetcode-cn.com/company/tencent/][腾讯 Tencent]] * 3
+*** 3. [[https://leetcode-cn.com/company/bloomberg/][彭博 Bloomberg]] * 2
+*** 3. [[https://leetcode-cn.com/company/microsoft/][微软 Microsoft]] * 2
+*** 3. [[https://leetcode-cn.com/company/oracle/][甲骨文 Oracle]] * 2
+*** 3. [[https://leetcode-cn.com/company/guazi/][瓜子二手车直卖网]] * 0

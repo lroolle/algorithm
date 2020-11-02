@@ -1,0 +1,135 @@
+#+TITLE: 0163. Missing Ranges
+#+DATE: 2020-10-09 22:02
+#+LAST_MODIFIED: 2020-10-09 22:02
+#+STARTUP: overview
+#+HUGO_WEIGHT: auto
+#+HUGO_AUTO_SET_LASTMOD: t
+#+EXPORT_FILE_NAME: 0163-missing-ranges
+#+HUGO_BASE_DIR:~/G/blog
+#+HUGO_SECTION: leetcode
+#+HUGO_CATEGORIES:leetcode
+#+HUGO_TAGS: Leetcode Algorithms Array
+
+* [[https://leetcode.com/problems/missing-ranges/][0163. Missing Ranges]]
+:PROPERTIES:
+:VISIBILITY: children
+:END:
+
+#+begin_quote
+Medium U:29 D:0 AC:27.0% F:0.4166001268
+#+end_quote
+
+You are given an inclusive range =[lower, upper]= and a *sorted unique*
+integer array =nums=, where all elements are in the inclusive range.
+
+A number =x= is considered *missing* if =x= is in the range
+=[lower, upper]= and =x= is not in =nums=.
+
+Return /the *smallest sorted* list of ranges that *cover every missing
+number exactly*/. That is, no element of =nums= is in any of the ranges,
+and each missing number is in one of the ranges.
+
+Each range =[a,b]= in the list should be output as:
+
+- ="a->b"= if =a != b=
+- ="a"= if =a == b=
+
+ 
+
+*Example 1:*
+
+#+BEGIN_EXAMPLE
+  Input: nums = [0,1,3,50,75], lower = 0, upper = 99
+  Output: ["2","4->49","51->74","76->99"]
+  Explanation: The ranges are:
+  [2,2] --> "2"
+  [4,49] --> "4->49"
+  [51,74] --> "51->74"
+  [76,99] --> "76->99"
+#+END_EXAMPLE
+
+*Example 2:*
+
+#+BEGIN_EXAMPLE
+  Input: nums = [], lower = 1, upper = 1
+  Output: ["1"]
+  Explanation: The only missing range is [1,1], which becomes "1".
+#+END_EXAMPLE
+
+*Example 3:*
+
+#+BEGIN_EXAMPLE
+  Input: nums = [], lower = -3, upper = -1
+  Output: ["-3->-1"]
+  Explanation: The only missing range is [-3,-1], which becomes "-3->-1".
+#+END_EXAMPLE
+
+*Example 4:*
+
+#+BEGIN_EXAMPLE
+  Input: nums = [-1], lower = -1, upper = -1
+  Output: []
+  Explanation: There are no missing ranges since there are no missing numbers.
+#+END_EXAMPLE
+
+*Example 5:*
+
+#+BEGIN_EXAMPLE
+  Input: nums = [-1], lower = -2, upper = -1
+  Output: ["-2"]
+#+END_EXAMPLE
+
+ 
+
+*Constraints:*
+
+- =-109 <= lower <= upper <= 109=
+- =0 <= nums.length <= 100=
+- =lower <= nums[i] <= upper=
+- All the values of =nums= are *unique*.
+** Topic Tags
+1. [[https://leetcode.com/tag/array/][Array]]
+
+** Similar Problems
+*** [[https://leetcode.com/problems/summary-ranges/][0228. Summary Ranges]]
+** Companies
+*** 1. [[https://leetcode-cn.com/company/facebook/][Facebook 脸书]] * 9
+*** 2. [[https://leetcode-cn.com/company/google/][谷歌 Google]] * 3
+*** 2. [[https://leetcode-cn.com/company/amazon/][亚马逊 Amazon]] * 3
+*** 3. [[https://leetcode-cn.com/company/oracle/][甲骨文 Oracle]] * 2
+*** 3. [[https://leetcode-cn.com/company/huawei/][华为]] * 0
+*** 3. [[https://leetcode-cn.com/company/bloomberg/][彭博 Bloomberg]] * 0
+*** 3. [[https://leetcode-cn.com/company/salesforce/][Salesforce]] * 0
+*** 3. [[https://leetcode-cn.com/company/doordash/][DoorDash]] * 0
+* [[https://leetcode-cn.com/problems/missing-ranges/][0163. 缺失的区间]]
+:PROPERTIES:
+:VISIBILITY: folded
+:END:
+
+#+begin_quote
+Medium U:29 D:0 AC:27.0% F:0.4166001268
+#+end_quote
+
+给定一个排序的整数数组 /*nums */，其中元素的范围在 *闭区间* *[/lower,
+upper/]* 当中，返回不包含在数组中的缺失区间。
+
+*示例：*
+
+#+BEGIN_EXAMPLE
+  输入: nums = [0, 1, 3, 50, 75], lower = 0 和 upper = 99,
+  输出: ["2", "4->49", "51->74", "76->99"]
+#+END_EXAMPLE
+** Topic Tags
+1. [[https://leetcode-cn.com/tag/array/][数组]]
+
+** Similar Problems
+*** [[https://leetcode-cn.com/problems/summary-ranges/][0228. 汇总区间]]
+** Companies
+*** 1. [[https://leetcode-cn.com/company/facebook/][Facebook 脸书]] * 9
+*** 2. [[https://leetcode-cn.com/company/google/][谷歌 Google]] * 3
+*** 2. [[https://leetcode-cn.com/company/amazon/][亚马逊 Amazon]] * 3
+*** 3. [[https://leetcode-cn.com/company/oracle/][甲骨文 Oracle]] * 2
+*** 3. [[https://leetcode-cn.com/company/huawei/][华为]] * 0
+*** 3. [[https://leetcode-cn.com/company/bloomberg/][彭博 Bloomberg]] * 0
+*** 3. [[https://leetcode-cn.com/company/salesforce/][Salesforce]] * 0
+*** 3. [[https://leetcode-cn.com/company/doordash/][DoorDash]] * 0

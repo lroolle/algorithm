@@ -1,0 +1,124 @@
+#+TITLE: 0037. Sudoku Solver
+#+DATE: 2020-09-15 11:06
+#+LAST_MODIFIED: 2020-09-15 11:53
+#+STARTUP: overview
+#+HUGO_WEIGHT: auto
+#+HUGO_AUTO_SET_LASTMOD: t
+#+EXPORT_FILE_NAME: 0037-sudoku-solver
+#+HUGO_BASE_DIR:~/G/blog
+#+HUGO_SECTION: leetcode
+#+HUGO_CATEGORIES:leetcode
+#+HUGO_TAGS: Leetcode Algorithms HashTable Backtracking
+
+* [[https://leetcode.com/problems/sudoku-solver/][0037. Sudoku Solver]] :ATTACH:
+:PROPERTIES:
+:VISIBILITY: children
+:ID:       47374097-5da2-4551-b60c-bec8b03b83b1
+:END:
+
+#+begin_quote
+Hard U:527 D:0 AC:62.8% F:1.0631698822
+#+end_quote
+
+Write a program to solve a Sudoku puzzle by filling the empty cells.
+
+A sudoku solution must satisfy *all of the following rules*:
+
+1. Each of the digits =1-9= must occur exactly once in each row.
+2. Each of the digits =1-9= must occur exactly once in each column.
+3. Each of the the digits =1-9= must occur exactly once in each of the 9
+   =3x3= sub-boxes of the grid.
+
+Empty cells are indicated by the character ='.'=.
+
+[[https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Sudoku-by-L2G-20050714.svg/250px-Sudoku-by-L2G-20050714.svg.png]]\\
+A sudoku puzzle...
+[[https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Sudoku-by-L2G-20050714_solution.svg/250px-Sudoku-by-L2G-20050714_solution.svg.png]]\\
+...and its solution numbers marked in red.
+
+[[http://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Sudoku-by-L2G-20050714.svg/250px-Sudoku-by-L2G-20050714.svg.png]]
+[[attachment:_20200915_111458250px-Sudoku-by-L2G-20050714.svg.png]]
+*Note:*
+
+- The given board contain only digits =1-9= and the character ='.'=.
+- You may assume that the given Sudoku puzzle will have a single unique
+  solution.
+- The given board size is always =9x9=.
+** Topic Tags
+1. [[https://leetcode.com/tag/hash-table/][Hash Table]]
+2. [[https://leetcode.com/tag/backtracking/][Backtracking]]
+
+** Similar Problems
+*** [[https://leetcode.com/problems/valid-sudoku/][0036. Valid Sudoku]]
+*** [[https://leetcode.com/problems/unique-paths-iii/][0980. Unique Paths III]]
+** Companies
+*** 1. [[https://leetcode-cn.com/company/huawei/][华为]] * 8
+*** 1. [[https://leetcode-cn.com/company/amazon/][亚马逊 Amazon]] * 8
+*** 1. [[https://leetcode-cn.com/company/google/][谷歌 Google]] * 4
+*** 1. [[https://leetcode-cn.com/company/apple/][苹果 Apple]] * 4
+*** 1. [[https://leetcode-cn.com/company/microsoft/][微软 Microsoft]] * 3
+*** 2. [[https://leetcode-cn.com/company/facebook/][Facebook 脸书]] * 5
+*** 2. [[https://leetcode-cn.com/company/adobe/][奥多比 Adobe]] * 3
+*** 2. [[https://leetcode-cn.com/company/oracle/][甲骨文 Oracle]] * 3
+*** 2. [[https://leetcode-cn.com/company/alibaba/][阿里巴巴]] * 2
+*** 2. [[https://leetcode-cn.com/company/wish/][Wish]] * 2
+*** 3. [[https://leetcode-cn.com/company/vmware/][VMware]] * 6
+*** 3. [[https://leetcode-cn.com/company/doordash/][DoorDash]] * 3
+*** 3. [[https://leetcode-cn.com/company/riot-games/][Riot Games]] * 2
+*** 3. [[https://leetcode-cn.com/company/channelsoft/][青牛软件]] * 0
+*** 3. [[https://leetcode-cn.com/company/toutiao/][今日头条]] * 0
+* [[https://leetcode-cn.com/problems/sudoku-solver/][0037. 解数独]]
+:PROPERTIES:
+:VISIBILITY: folded
+:END:
+
+#+begin_quote
+Hard U:527 D:0 AC:62.8% F:1.0631698822
+#+end_quote
+
+编写一个程序，通过已填充的空格来解决数独问题。
+
+一个数独的解法需*遵循如下规则*：
+
+1. 数字 =1-9= 在每一行只能出现一次。
+2. 数字 =1-9= 在每一列只能出现一次。
+3. 数字 =1-9= 在每一个以粗实线分隔的 =3x3= 宫内只能出现一次。
+
+空白格用 ='.'= 表示。
+
+[[http://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Sudoku-by-L2G-20050714.svg/250px-Sudoku-by-L2G-20050714.svg.png]]
+
+一个数独。
+
+[[http://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Sudoku-by-L2G-20050714_solution.svg/250px-Sudoku-by-L2G-20050714_solution.svg.png]]
+
+答案被标成红色。
+
+*Note:*
+
+- 给定的数独序列只包含数字 =1-9= 和字符 ='.'= 。
+- 你可以假设给定的数独只有唯一解。
+- 给定数独永远是 =9x9= 形式的。
+** Topic Tags
+1. [[https://leetcode-cn.com/tag/hash-table/][哈希表]]
+2. [[https://leetcode-cn.com/tag/backtracking/][回溯算法]]
+
+** Similar Problems
+*** [[https://leetcode-cn.com/problems/valid-sudoku/][0036. 有效的数独]]
+*** [[https://leetcode-cn.com/problems/unique-paths-iii/][0980. 不同路径 III]]
+** Companies
+*** 1. [[https://leetcode-cn.com/company/huawei/][华为]] * 8
+*** 1. [[https://leetcode-cn.com/company/amazon/][亚马逊 Amazon]] * 8
+*** 1. [[https://leetcode-cn.com/company/google/][谷歌 Google]] * 4
+*** 1. [[https://leetcode-cn.com/company/apple/][苹果 Apple]] * 4
+*** 1. [[https://leetcode-cn.com/company/microsoft/][微软 Microsoft]] * 3
+*** 2. [[https://leetcode-cn.com/company/facebook/][Facebook 脸书]] * 5
+*** 2. [[https://leetcode-cn.com/company/adobe/][奥多比 Adobe]] * 3
+*** 2. [[https://leetcode-cn.com/company/oracle/][甲骨文 Oracle]] * 3
+*** 2. [[https://leetcode-cn.com/company/alibaba/][阿里巴巴]] * 2
+*** 2. [[https://leetcode-cn.com/company/wish/][Wish]] * 2
+*** 3. [[https://leetcode-cn.com/company/vmware/][VMware]] * 6
+*** 3. [[https://leetcode-cn.com/company/doordash/][DoorDash]] * 3
+*** 3. [[https://leetcode-cn.com/company/riot-games/][Riot Games]] * 2
+*** 3. [[https://leetcode-cn.com/company/channelsoft/][青牛软件]] * 0
+*** 3. [[https://leetcode-cn.com/company/toutiao/][今日头条]] * 0

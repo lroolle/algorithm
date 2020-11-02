@@ -1,0 +1,158 @@
+#+TITLE: 0003. Longest Substring Without Repeating Characters
+#+DATE: 2020-09-15 15:18
+#+LAST_MODIFIED: 2020-09-15 15:18
+#+STARTUP: overview
+#+HUGO_WEIGHT: auto
+#+HUGO_AUTO_SET_LASTMOD: t
+#+EXPORT_FILE_NAME: 0003-longest-substring-without-repeating-characters
+#+HUGO_BASE_DIR:~/G/blog
+#+HUGO_SECTION: leetcode
+#+HUGO_CATEGORIES:leetcode
+#+HUGO_TAGS: Leetcode Algorithms HashTable TwoPointers String SlidingWindow
+
+* Solutions
+
+** Solution I: Hash Table with a start pointer
+
+
+
+
+* [[https://leetcode.com/problems/longest-substring-without-repeating-characters/][0003. Longest Substring Without Repeating Characters]]
+:PROPERTIES:
+:VISIBILITY: children
+:END:
+
+#+begin_quote
+Medium U:4306 D:0 AC:35.6% F:1.3859319016
+#+end_quote
+
+Given a string =s=, find the length of the *longest substring* without
+repeating characters.
+
+ 
+
+*Example 1:*
+
+#+BEGIN_EXAMPLE
+  Input: s = "abcabcbb"
+  Output: 3
+  Explanation: The answer is "abc", with the length of 3.
+#+END_EXAMPLE
+
+*Example 2:*
+
+#+BEGIN_EXAMPLE
+  Input: s = "bbbbb"
+  Output: 1
+  Explanation: The answer is "b", with the length of 1.
+#+END_EXAMPLE
+
+*Example 3:*
+
+#+BEGIN_EXAMPLE
+  Input: s = "pwwkew"
+  Output: 3
+  Explanation: The answer is "wke", with the length of 3.
+  Notice that the answer must be a substring, "pwke" is a subsequence and not a substring.
+#+END_EXAMPLE
+
+*Example 4:*
+
+#+BEGIN_EXAMPLE
+  Input: s = ""
+  Output: 0
+#+END_EXAMPLE
+
+ 
+
+*Constraints:*
+
+- =0 <= s.length <= 5 * 104=
+- =s= consists of English letters, digits, symbols and spaces.
+** Topic Tags
+1. [[https://leetcode.com/tag/hash-table/][Hash Table]]
+2. [[https://leetcode.com/tag/two-pointers/][Two Pointers]]
+3. [[https://leetcode.com/tag/string/][String]]
+4. [[https://leetcode.com/tag/sliding-window/][Sliding Window]]
+
+** Similar Problems
+*** [[https://leetcode.com/problems/longest-substring-with-at-most-two-distinct-characters/][0159. Longest Substring with At Most Two Distinct Characters]]
+*** [[https://leetcode.com/problems/longest-substring-with-at-most-k-distinct-characters/][0340. Longest Substring with At Most K Distinct Characters]]
+*** [[https://leetcode.com/problems/subarrays-with-k-different-integers/][0992. Subarrays with K Different Integers]]
+** Companies
+*** 1. [[https://leetcode-cn.com/company/bytedance/][字节跳动]] * 109
+*** 1. [[https://leetcode-cn.com/company/amazon/][亚马逊 Amazon]] * 41
+*** 1. [[https://leetcode-cn.com/company/facebook/][Facebook 脸书]] * 26
+*** 1. [[https://leetcode-cn.com/company/microsoft/][微软 Microsoft]] * 15
+*** 1. [[https://leetcode-cn.com/company/apple/][苹果 Apple]] * 13
+*** 2. [[https://leetcode-cn.com/company/adobe/][奥多比 Adobe]] * 23
+*** 2. [[https://leetcode-cn.com/company/goldman-sachs/][高盛集团 Goldman Sachs]] * 7
+*** 2. [[https://leetcode-cn.com/company/kuaishou/][快手]] * 3
+*** 2. [[https://leetcode-cn.com/company/toutiao/][今日头条]] * 3
+*** 2. [[https://leetcode-cn.com/company/37/][三七互娱]] * 3
+*** 3. [[https://leetcode-cn.com/company/bloomberg/][彭博 Bloomberg]] * 42
+*** 3. [[https://leetcode-cn.com/company/uber/][优步 Uber]] * 24
+*** 3. [[https://leetcode-cn.com/company/vmware/][VMware]] * 7
+*** 3. [[https://leetcode-cn.com/company/yahoo/][雅虎 Yahoo]] * 5
+*** 3. [[https://leetcode-cn.com/company/guazi/][瓜子二手车直卖网]] * 4
+* [[https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/][0003. 无重复字符的最长子串]]
+:PROPERTIES:
+:VISIBILITY: folded
+:END:
+
+#+begin_quote
+Medium U:4306 D:0 AC:35.6% F:1.3859319016
+#+end_quote
+
+给定一个字符串，请你找出其中不含有重复字符的 *最长子串 *的长度。
+
+*示例 1:*
+
+#+BEGIN_EXAMPLE
+  输入: "abcabcbb"
+  输出: 3 
+  解释: 因为无重复字符的最长子串是 "abc"，所以其长度为 3。
+#+END_EXAMPLE
+
+*示例 2:*
+
+#+BEGIN_EXAMPLE
+  输入: "bbbbb"
+  输出: 1
+  解释: 因为无重复字符的最长子串是 "b"，所以其长度为 1。
+#+END_EXAMPLE
+
+*示例 3:*
+
+#+BEGIN_EXAMPLE
+  输入: "pwwkew"
+  输出: 3
+  解释: 因为无重复字符的最长子串是 "wke"，所以其长度为 3。
+       请注意，你的答案必须是 子串 的长度，"pwke" 是一个子序列，不是子串。
+#+END_EXAMPLE
+** Topic Tags
+1. [[https://leetcode-cn.com/tag/hash-table/][哈希表]]
+2. [[https://leetcode-cn.com/tag/two-pointers/][双指针]]
+3. [[https://leetcode-cn.com/tag/string/][字符串]]
+4. [[https://leetcode-cn.com/tag/sliding-window/][None]]
+
+** Similar Problems
+*** [[https://leetcode-cn.com/problems/longest-substring-with-at-most-two-distinct-characters/][0159. 至多包含两个不同字符的最长子串]]
+*** [[https://leetcode-cn.com/problems/longest-substring-with-at-most-k-distinct-characters/][0340. 至多包含 K 个不同字符的最长子串]]
+*** [[https://leetcode-cn.com/problems/subarrays-with-k-different-integers/][0992. K 个不同整数的子数组]]
+** Companies
+*** 1. [[https://leetcode-cn.com/company/bytedance/][字节跳动]] * 109
+*** 1. [[https://leetcode-cn.com/company/amazon/][亚马逊 Amazon]] * 41
+*** 1. [[https://leetcode-cn.com/company/facebook/][Facebook 脸书]] * 26
+*** 1. [[https://leetcode-cn.com/company/microsoft/][微软 Microsoft]] * 15
+*** 1. [[https://leetcode-cn.com/company/apple/][苹果 Apple]] * 13
+*** 2. [[https://leetcode-cn.com/company/adobe/][奥多比 Adobe]] * 23
+*** 2. [[https://leetcode-cn.com/company/goldman-sachs/][高盛集团 Goldman Sachs]] * 7
+*** 2. [[https://leetcode-cn.com/company/kuaishou/][快手]] * 3
+*** 2. [[https://leetcode-cn.com/company/toutiao/][今日头条]] * 3
+*** 2. [[https://leetcode-cn.com/company/37/][三七互娱]] * 3
+*** 3. [[https://leetcode-cn.com/company/bloomberg/][彭博 Bloomberg]] * 42
+*** 3. [[https://leetcode-cn.com/company/uber/][优步 Uber]] * 24
+*** 3. [[https://leetcode-cn.com/company/vmware/][VMware]] * 7
+*** 3. [[https://leetcode-cn.com/company/yahoo/][雅虎 Yahoo]] * 5
+*** 3. [[https://leetcode-cn.com/company/guazi/][瓜子二手车直卖网]] * 4

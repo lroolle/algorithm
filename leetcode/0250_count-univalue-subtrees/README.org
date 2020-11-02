@@ -1,0 +1,114 @@
+#+TITLE: 0250. Count Univalue Subtrees
+#+DATE: 2020-09-16 17:45
+#+LAST_MODIFIED: 2020-09-16 17:45
+#+STARTUP: overview
+#+HUGO_WEIGHT: auto
+#+HUGO_AUTO_SET_LASTMOD: t
+#+EXPORT_FILE_NAME: 0250-count-univalue-subtrees
+#+HUGO_BASE_DIR:~/G/blog
+#+HUGO_SECTION: leetcode
+#+HUGO_CATEGORIES:leetcode
+#+HUGO_TAGS: Leetcode Algorithms Tree
+
+* [[https://leetcode.com/problems/count-univalue-subtrees/][0250. Count Univalue Subtrees]]
+:PROPERTIES:
+:VISIBILITY: children
+:END:
+
+#+begin_quote
+Medium U:37 D:0 AC:63.9% F:0.0
+#+end_quote
+
+Given the =root= of a binary tree, return the number of *uni-value*
+subtrees.
+
+A *uni-value subtree* means all nodes of the subtree have the same
+value.
+
+ 
+
+*Example 1:*
+
+[[https://assets.leetcode.com/uploads/2020/08/21/unival_e1.jpg]]
+
+#+BEGIN_EXAMPLE
+  Input: root = [5,1,5,5,5,null,5]
+  Output: 4
+#+END_EXAMPLE
+
+*Example 2:*
+
+#+BEGIN_EXAMPLE
+  Input: root = []
+  Output: 0
+#+END_EXAMPLE
+
+*Example 3:*
+
+#+BEGIN_EXAMPLE
+  Input: root = [5,5,5,5,5,null,5]
+  Output: 6
+#+END_EXAMPLE
+
+ 
+
+*Constraints:*
+
+- The numbrt of the node in the tree will be in the range =[0, 1000]=.
+- =-1000 <= Node.val <= 1000=
+** Topic Tags
+1. [[https://leetcode.com/tag/tree/][Tree]]
+
+** Similar Problems
+*** [[https://leetcode.com/problems/subtree-of-another-tree/][0572. Subtree of Another Tree]]
+*** [[https://leetcode.com/problems/longest-univalue-path/][0687. Longest Univalue Path]]
+** Companies
+*** 1. [[https://leetcode-cn.com/company/ebay/][eBay]] * 4
+*** 1. [[https://leetcode-cn.com/company/google/][谷歌 Google]] * 3
+*** 2. [[https://leetcode-cn.com/company/amazon/][亚马逊 Amazon]] * 2
+*** 3. [[https://leetcode-cn.com/company/facebook/][Facebook 脸书]] * 3
+*** 3. [[https://leetcode-cn.com/company/bloomberg/][彭博 Bloomberg]] * 3
+*** 3. [[https://leetcode-cn.com/company/paypal/][PayPal]] * 0
+*** 3. [[https://leetcode-cn.com/company/appdynamics/][AppDynamics]] * 0
+*** 3. [[https://leetcode-cn.com/company/cloudera/][Cloudera]] * 0
+* [[https://leetcode-cn.com/problems/count-univalue-subtrees/][0250. 统计同值子树]]
+:PROPERTIES:
+:VISIBILITY: folded
+:END:
+
+#+begin_quote
+Medium U:37 D:0 AC:63.9% F:0.0
+#+end_quote
+
+给定一个二叉树，统计该二叉树数值相同的子树个数。
+
+同值子树是指该子树的所有节点都拥有相同的数值。
+
+*示例：*
+
+#+BEGIN_EXAMPLE
+  输入: root = [5,1,5,5,5,null,5]
+
+                5
+               / \
+              1   5
+             / \   \
+            5   5   5
+
+  输出: 4
+#+END_EXAMPLE
+** Topic Tags
+1. [[https://leetcode-cn.com/tag/tree/][树]]
+
+** Similar Problems
+*** [[https://leetcode-cn.com/problems/subtree-of-another-tree/][0572. 另一个树的子树]]
+*** [[https://leetcode-cn.com/problems/longest-univalue-path/][0687. 最长同值路径]]
+** Companies
+*** 1. [[https://leetcode-cn.com/company/ebay/][eBay]] * 4
+*** 1. [[https://leetcode-cn.com/company/google/][谷歌 Google]] * 3
+*** 2. [[https://leetcode-cn.com/company/amazon/][亚马逊 Amazon]] * 2
+*** 3. [[https://leetcode-cn.com/company/facebook/][Facebook 脸书]] * 3
+*** 3. [[https://leetcode-cn.com/company/bloomberg/][彭博 Bloomberg]] * 3
+*** 3. [[https://leetcode-cn.com/company/paypal/][PayPal]] * 0
+*** 3. [[https://leetcode-cn.com/company/appdynamics/][AppDynamics]] * 0
+*** 3. [[https://leetcode-cn.com/company/cloudera/][Cloudera]] * 0

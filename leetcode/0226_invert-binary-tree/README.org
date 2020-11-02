@@ -1,0 +1,126 @@
+#+TITLE: 0226. Invert Binary Tree
+#+DATE: 2020-09-16 18:14
+#+LAST_MODIFIED: 2020-09-16 18:14
+#+STARTUP: overview
+#+HUGO_WEIGHT: auto
+#+HUGO_AUTO_SET_LASTMOD: t
+#+EXPORT_FILE_NAME: 0226-invert-binary-tree
+#+HUGO_BASE_DIR:~/G/blog
+#+HUGO_SECTION: leetcode
+#+HUGO_CATEGORIES:leetcode
+#+HUGO_TAGS: Leetcode Algorithms Tree
+
+* [[https://leetcode.com/problems/invert-binary-tree/][0226. Invert Binary Tree]]
+:PROPERTIES:
+:VISIBILITY: children
+:END:
+
+#+begin_quote
+Easy U:595 D:0 AC:77.1% F:0.55178962
+#+end_quote
+
+Invert a binary tree.
+
+*Example:*
+
+Input:
+
+#+BEGIN_EXAMPLE
+       4
+     /   \
+    2     7
+   / \   / \
+  1   3 6   9
+#+END_EXAMPLE
+
+Output:
+
+#+BEGIN_EXAMPLE
+       4
+     /   \
+    7     2
+   / \   / \
+  9   6 3   1
+#+END_EXAMPLE
+
+*Trivia:*\\
+This problem was inspired by
+[[https://twitter.com/mxcl/status/608682016205344768][this original
+tweet]] by [[https://twitter.com/mxcl][Max Howell]]:
+
+#+BEGIN_QUOTE
+  Google: 90% of our engineers use the software you wrote (Homebrew),
+  but you can't invert a binary tree on a whiteboard so f*** off.
+#+END_QUOTE
+** Topic Tags
+1. [[https://leetcode.com/tag/tree/][Tree]]
+** Companies
+*** 1. [[https://leetcode-cn.com/company/google/][谷歌 Google]] * 10
+*** 1. [[https://leetcode-cn.com/company/bytedance/][字节跳动]] * 8
+*** 1. [[https://leetcode-cn.com/company/amazon/][亚马逊 Amazon]] * 4
+*** 1. [[https://leetcode-cn.com/company/microsoft/][微软 Microsoft]] * 3
+*** 1. [[https://leetcode-cn.com/company/alibaba/][阿里巴巴]] * 2
+*** 2. [[https://leetcode-cn.com/company/facebook/][Facebook 脸书]] * 3
+*** 2. [[https://leetcode-cn.com/company/didi/][滴滴打车]] * 3
+*** 2. [[https://leetcode-cn.com/company/baidu/][百度]] * 2
+*** 3. [[https://leetcode-cn.com/company/bloomberg/][彭博 Bloomberg]] * 4
+*** 3. [[https://leetcode-cn.com/company/adobe/][奥多比 Adobe]] * 3
+*** 3. [[https://leetcode-cn.com/company/vmware/][VMware]] * 3
+*** 3. [[https://leetcode-cn.com/company/netease-games/][网易游戏]] * 0
+*** 3. [[https://leetcode-cn.com/company/zhangmenyiduiyi/][掌门一对一]] * 0
+* [[https://leetcode-cn.com/problems/invert-binary-tree/][0226. 翻转二叉树]]
+:PROPERTIES:
+:VISIBILITY: folded
+:END:
+
+#+begin_quote
+Easy U:595 D:0 AC:77.1% F:0.55178962
+#+end_quote
+
+翻转一棵二叉树。
+
+*示例：*
+
+输入：
+
+#+BEGIN_EXAMPLE
+       4
+     /   \
+    2     7
+   / \   / \
+  1   3 6   9
+#+END_EXAMPLE
+
+输出：
+
+#+BEGIN_EXAMPLE
+       4
+     /   \
+    7     2
+   / \   / \
+  9   6 3   1
+#+END_EXAMPLE
+
+*备注:*\\
+这个问题是受到 [[https://twitter.com/mxcl][Max Howell]] 的
+[[https://twitter.com/mxcl/status/608682016205344768][原问题]] 启发的 ：
+
+#+BEGIN_QUOTE
+  谷歌：我们90％的工程师使用您编写的软件(Homebrew)，但是您却无法在面试时在白板上写出翻转二叉树这道题，这太糟糕了。
+#+END_QUOTE
+** Topic Tags
+1. [[https://leetcode-cn.com/tag/tree/][树]]
+** Companies
+*** 1. [[https://leetcode-cn.com/company/google/][谷歌 Google]] * 10
+*** 1. [[https://leetcode-cn.com/company/bytedance/][字节跳动]] * 8
+*** 1. [[https://leetcode-cn.com/company/amazon/][亚马逊 Amazon]] * 4
+*** 1. [[https://leetcode-cn.com/company/microsoft/][微软 Microsoft]] * 3
+*** 1. [[https://leetcode-cn.com/company/alibaba/][阿里巴巴]] * 2
+*** 2. [[https://leetcode-cn.com/company/facebook/][Facebook 脸书]] * 3
+*** 2. [[https://leetcode-cn.com/company/didi/][滴滴打车]] * 3
+*** 2. [[https://leetcode-cn.com/company/baidu/][百度]] * 2
+*** 3. [[https://leetcode-cn.com/company/bloomberg/][彭博 Bloomberg]] * 4
+*** 3. [[https://leetcode-cn.com/company/adobe/][奥多比 Adobe]] * 3
+*** 3. [[https://leetcode-cn.com/company/vmware/][VMware]] * 3
+*** 3. [[https://leetcode-cn.com/company/netease-games/][网易游戏]] * 0
+*** 3. [[https://leetcode-cn.com/company/zhangmenyiduiyi/][掌门一对一]] * 0

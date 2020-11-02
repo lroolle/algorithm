@@ -1,0 +1,79 @@
+#+TITLE: 数组栈
+#+DATE: 2020-09-16 00:08
+#+LAST_MODIFIED: 2020-09-16 00:08
+#+STARTUP: overview
+#+HUGO_WEIGHT: auto
+#+HUGO_AUTO_SET_LASTMOD: t
+#+EXPORT_FILE_NAME: 0020-valid-parentheses-shu-zu-zhan-by-chenghua-3
+#+HUGO_BASE_DIR:~/G/blog
+#+HUGO_SECTION: leetcode
+#+HUGO_CATEGORIES:leetcode
+#+HUGO_TAGS: Leetcode Algorithms C
+
+* [[https://leetcode-cn.com/problems/valid-parentheses/solution/shu-zu-zhan-by-chenghua-3/][数组栈]] :C:
+:PROPERTIES:
+:VISIBILITY: children
+:END:
+
+#+begin_quote
+[[https://leetcode-cn.com/problems/valid-parentheses/][0020. Valid Parentheses]] [[https://leetcode-cn.com/problems/valid-parentheses/solution/shu-zu-zhan-by-chenghua-3/][数组栈]] solution by [[https://leetcode-cn.com/u/chenghua-3/][chenghua-3]]
+#+end_quote
+
+** 解题思路
+    :PROPERTIES:
+    :CUSTOM_ID: 解题思路
+    :END:
+
+使用数组栈编写
+
+** 代码
+    :PROPERTIES:
+    :CUSTOM_ID: 代码
+    :END:
+
+#+BEGIN_SRC C
+  bool isValid(char * s)
+  {
+     if((*s)=='\0')   return true;
+     int long_s=strlen(s);
+     int *zu=(int *)malloc(sizeof(int)*long_s),count=-1;
+     char *tmp=s;
+     while((*tmp)!='\0'){
+     if((*tmp)=='[' || (*tmp)=='(' || (*tmp)=='{')
+     {
+         count++;zu[count]=(*tmp);
+     }
+     else if(((*tmp)==']' || (*tmp)==')' || (*tmp)=='}'))
+     {
+         if(count==-1) return false;
+         switch((*tmp))
+         {
+             case ']':
+                  if('['==zu[count])
+                  {
+                      count--;
+                  }
+                  else return false;
+                  break;
+              case '}':
+                  if('{'==zu[count])
+                  {
+                      count--;
+                  }
+                  else return false;
+                  break;
+              case ')':
+                  if('('==zu[count])
+                  {
+                      count--;
+                  }
+                  else return false;
+                  break;
+         }
+     }
+     tmp++;
+     }
+     if(count==-1)    return true;
+     else return false;
+  }
+#+END_SRC

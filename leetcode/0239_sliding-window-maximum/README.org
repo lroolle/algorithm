@@ -1,0 +1,238 @@
+#+TITLE: 0239. Sliding Window Maximum
+#+DATE: 2020-09-16 14:02
+#+LAST_MODIFIED: 2020-09-16 14:03
+#+STARTUP: overview
+#+HUGO_WEIGHT: auto
+#+HUGO_AUTO_SET_LASTMOD: t
+#+EXPORT_FILE_NAME: 0239-sliding-window-maximum
+#+HUGO_BASE_DIR:~/G/blog
+#+HUGO_SECTION: leetcode
+#+HUGO_CATEGORIES:leetcode
+#+HUGO_TAGS: Leetcode Algorithms Heap SlidingWindow
+
+* Solution
+
+** Solution 1: Straight
+
+- TC: O(nk)
+- SC: O(n-k+1)
+
+
+** Solution 2: Deque
+
+- Init a deque to save the elements within current window;
+- For nums within the window, if next ~num[i] > nums[deque[-1]]~ (last one),
+  then ~nums[deque[-1]]~ must not greater than any one else in the current window
+  nor the next window, so we can pop it out;
+- So as we can just keep the max ~num~ index of current window to ~deque[0]~;
+- Move the window left, repeat do pop ~deque[-1]~ if ~num[i] > nums[deque[-1]]~,
+  Add index of next num if not so. And also do remember to remove the element
+  out of current window.
+- Add num of ~deque[0]~ (the max one's index) to the output result then return.
+
+#+BEGIN_EXAMPLE
+nums = [1, 3, -1, -3, 5, 3, 6, 7], and k = 3
+        0  1   2   3  4  5  6  7
+
+Step1 Init Deque: 1 -> 3 ->    -1
+                  0    1        2
+           deque [0] [0, 1]   [1, 2]
+                             1 < 3 popleft(0)
+
+
+Step2 Output: [3] (nums[deque[0]])
+Step3 Move left: 3 -> -1 -> -3
+                 1     2     3
+           deque          [1, 2, 3]
+           output [3, 3] (nums[deque[0]])
+
+Step4 Move left:   3 -> -1 ->    -3   ->  5
+                   1     2        3       4
+           deque: [1, 2, 3] -> [2, 3] -> [4]
+                           (1 outwindow) (5 > -3 > -1)
+
+Do repeat...
+#+END_EXAMPLE
+
+#+BEGIN_SRC go :exports both :imports "fmt"
+func maxSlidingWindow(nums []int, k int) []int {
+	ret := []int{}
+	deque := []int{}
+
+	// cleanDeque do things below:
+	//   1. Pop left index which is outside the window
+	//   2. Pop right index which num is smaller than next one
+	cleanDeque := func(i int) {
+		if len(deque) > 0 && deque[0] == i-k {
+			deque = deque[1:]
+		}
+		for len(deque) > 0 && nums[i] > nums[deque[len(deque)-1]] {
+			deque = deque[:len(deque)-1]
+		}
+	}
+
+	// Init deque
+	for i := 0; i < k; i++ {
+		cleanDeque(i)
+		deque = append(deque, i)
+	}
+	ret = append(ret, nums[deque[0]])
+
+	// Steps Move window forward
+	for i := k; i < len(nums); i++ {
+		cleanDeque(i)
+		deque = append(deque, i)
+		ret = append(ret, nums[deque[0]])
+	}
+	return ret
+}
+#+END_SRC
+
+
+* [[https://leetcode.com/problems/sliding-window-maximum/][0239. Sliding Window Maximum]]
+:PROPERTIES:
+:VISIBILITY: children
+:END:
+
+#+begin_quote
+Hard U:556 D:0 AC:49.1% F:0.6094689813
+#+end_quote
+
+Given an array /nums/, there is a sliding window of size /k/ which is
+moving from the very left of the array to the very right. You can only
+see the /k/ numbers in the window. Each time the sliding window moves
+right by one position. Return the max sliding window.
+
+*Follow up:*\\
+Could you solve it in linear time?
+
+*Example:*
+
+#+BEGIN_EXAMPLE
+
+  Input: nums = [1,3,-1,-3,5,3,6,7], and k = 3
+  Output: [3,3,5,5,6,7] 
+  Explanation: 
+
+  Window position                Max
+  ---------------               -----
+  [1  3  -1] -3  5  3  6  7       3
+   1 [3  -1  -3] 5  3  6  7       3
+   1  3 [-1  -3  5] 3  6  7       5
+   1  3  -1 [-3  5  3] 6  7       5
+   1  3  -1  -3 [5  3  6] 7       6
+   1  3  -1  -3  5 [3  6  7]      7
+#+END_EXAMPLE
+
+ 
+
+*Constraints:*
+
+- =1 <= nums.length <= 10^5=
+- =-10^4 <= nums[i] <= 10^4=
+- =1 <= k <= nums.length=
+** Hints
+1. How about using a data structure such as deque (double-ended queue)?
+2. The queue size need not be the same as the window’s size.
+3. Remove redundant elements and the queue should store only elements that need to be considered.
+** Topic Tags
+1. [[https://leetcode.com/tag/heap/][Heap]]
+2. [[https://leetcode.com/tag/sliding-window/][Sliding Window]]
+
+** Similar Problems
+*** [[https://leetcode.com/problems/minimum-window-substring/][0076. Minimum Window Substring]]
+*** [[https://leetcode.com/problems/min-stack/][0155. Min Stack]]
+*** [[https://leetcode.com/problems/longest-substring-with-at-most-two-distinct-characters/][0159. Longest Substring with At Most Two Distinct Characters]]
+*** [[https://leetcode.com/problems/paint-house-ii/][0265. Paint House II]]
+** Companies
+*** 1. [[https://leetcode-cn.com/company/amazon/][亚马逊 Amazon]] * 24
+*** 1. [[https://leetcode-cn.com/company/bytedance/][字节跳动]] * 7
+*** 1. [[https://leetcode-cn.com/company/google/][谷歌 Google]] * 5
+*** 1. [[https://leetcode-cn.com/company/databricks/][Databricks]] * 5
+*** 1. [[https://leetcode-cn.com/company/alibaba/][阿里巴巴]] * 4
+*** 2. [[https://leetcode-cn.com/company/baidu/][百度]] * 3
+*** 2. [[https://leetcode-cn.com/company/adobe/][奥多比 Adobe]] * 2
+*** 2. [[https://leetcode-cn.com/company/wish/][Wish]] * 2
+*** 2. [[https://leetcode-cn.com/company/apple/][苹果 Apple]] * 2
+*** 2. [[https://leetcode-cn.com/company/oracle/][甲骨文 Oracle]] * 2
+*** 3. [[https://leetcode-cn.com/company/uber/][优步 Uber]] * 18
+*** 3. [[https://leetcode-cn.com/company/bloomberg/][彭博 Bloomberg]] * 8
+*** 3. [[https://leetcode-cn.com/company/twitter/][推特 Twitter]] * 5
+*** 3. [[https://leetcode-cn.com/company/coursera/][Coursera]] * 2
+*** 3. [[https://leetcode-cn.com/company/vmware/][VMware]] * 2
+* [[https://leetcode-cn.com/problems/sliding-window-maximum/][0239. 滑动窗口最大值]]
+:PROPERTIES:
+:VISIBILITY: folded
+:END:
+
+#+begin_quote
+Hard U:556 D:0 AC:49.1% F:0.6094689813
+#+end_quote
+
+给定一个数组
+/nums/，有一个大小为 /k /的滑动窗口从数组的最左侧移动到数组的最右侧。你只可以看到在滑动窗口内的
+/k/ 个数字。滑动窗口每次只向右移动一位。
+
+返回滑动窗口中的最大值。
+
+ 
+
+*进阶：*
+
+你能在线性时间复杂度内解决此题吗？
+
+ 
+
+*示例:*
+
+#+BEGIN_EXAMPLE
+  输入: nums = [1,3,-1,-3,5,3,6,7], 和 k = 3
+  输出: [3,3,5,5,6,7] 
+  解释: 
+
+    滑动窗口的位置                最大值
+  ---------------               -----
+  [1  3  -1] -3  5  3  6  7       3
+   1 [3  -1  -3] 5  3  6  7       3
+   1  3 [-1  -3  5] 3  6  7       5
+   1  3  -1 [-3  5  3] 6  7       5
+   1  3  -1  -3 [5  3  6] 7       6
+   1  3  -1  -3  5 [3  6  7]      7
+#+END_EXAMPLE
+
+ 
+
+*提示：*
+
+- =1 <= nums.length <= 10^5=
+- =-10^4 <= nums[i] <= 10^4=
+- =1 <= k <= nums.length=
+** Hints
+1. How about using a data structure such as deque (double-ended queue)?
+2. The queue size need not be the same as the window’s size.
+3. Remove redundant elements and the queue should store only elements that need to be considered.
+** Topic Tags
+1. [[https://leetcode-cn.com/tag/heap/][堆]]
+2. [[https://leetcode-cn.com/tag/sliding-window/][None]]
+
+** Similar Problems
+*** [[https://leetcode-cn.com/problems/minimum-window-substring/][0076. 最小覆盖子串]]
+*** [[https://leetcode-cn.com/problems/min-stack/][0155. 最小栈]]
+*** [[https://leetcode-cn.com/problems/longest-substring-with-at-most-two-distinct-characters/][0159. 至多包含两个不同字符的最长子串]]
+*** [[https://leetcode-cn.com/problems/paint-house-ii/][0265. 粉刷房子 II]]
+** Companies
+*** 1. [[https://leetcode-cn.com/company/amazon/][亚马逊 Amazon]] * 24
+*** 1. [[https://leetcode-cn.com/company/bytedance/][字节跳动]] * 7
+*** 1. [[https://leetcode-cn.com/company/google/][谷歌 Google]] * 5
+*** 1. [[https://leetcode-cn.com/company/databricks/][Databricks]] * 5
+*** 1. [[https://leetcode-cn.com/company/alibaba/][阿里巴巴]] * 4
+*** 2. [[https://leetcode-cn.com/company/baidu/][百度]] * 3
+*** 2. [[https://leetcode-cn.com/company/adobe/][奥多比 Adobe]] * 2
+*** 2. [[https://leetcode-cn.com/company/wish/][Wish]] * 2
+*** 2. [[https://leetcode-cn.com/company/apple/][苹果 Apple]] * 2
+*** 2. [[https://leetcode-cn.com/company/oracle/][甲骨文 Oracle]] * 2
+*** 3. [[https://leetcode-cn.com/company/uber/][优步 Uber]] * 18
+*** 3. [[https://leetcode-cn.com/company/bloomberg/][彭博 Bloomberg]] * 8
+*** 3. [[https://leetcode-cn.com/company/twitter/][推特 Twitter]] * 5
+*** 3. [[https://leetcode-cn.com/company/coursera/][Coursera]] * 2
+*** 3. [[https://leetcode-cn.com/company/vmware/][VMware]] * 2

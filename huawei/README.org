@@ -1,0 +1,40 @@
+#+TITLE: Readme
+#+DATE: 2020-09-18 18:19
+#+STARTUP: overview
+#+EXPORT_FILE_NAME: Readme
+#+HUGO_WEIGHT: auto
+#+HUGO_BASE_DIR: ~/G/blog
+#+HUGO_AUTO_SET_LASTMOD: t
+#+HUGO_SECTION: notes
+#+HUGO_CATEGORIES: notes
+#+HUGO_TAGS: notes
+
+
+* 字符串最后一个单词长度
+
+#+BEGIN_SRC C
+#include <stdio.h>
+
+int main() {
+  char ch;
+  int n = 0;
+  int flag = 0;
+
+  while (1) {
+    ch = getchar();
+    if (ch == '\n') {
+      break;
+    } else if (ch != ' ') {
+      if (flag == 0) {
+        n = 0;
+        flag = 1;
+      }
+      n++;
+    } else {
+      flag = 0;
+    }
+  }
+  printf("%d\n", n);
+  return 0;
+}
+#+END_SRC

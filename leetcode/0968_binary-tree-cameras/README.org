@@ -1,0 +1,132 @@
+#+TITLE: 0968. Binary Tree Cameras
+#+DATE: 2020-09-22 18:39
+#+LAST_MODIFIED: 2020-09-22 18:39
+#+STARTUP: overview
+#+HUGO_WEIGHT: auto
+#+HUGO_AUTO_SET_LASTMOD: t
+#+EXPORT_FILE_NAME: 0968-binary-tree-cameras
+#+HUGO_BASE_DIR:~/G/blog
+#+HUGO_SECTION: leetcode
+#+HUGO_CATEGORIES:leetcode
+#+HUGO_TAGS: Leetcode Algorithms Tree DepthfirstSearch DynamicProgramming
+
+* [[https://leetcode.com/problems/binary-tree-cameras/][0968. Binary Tree Cameras]]
+:PROPERTIES:
+:VISIBILITY: children
+:END:
+
+#+begin_quote
+Hard U:176 D:0 AC:47.1% F:1.4859226034
+#+end_quote
+
+Given a binary tree, we install cameras on the nodes of the tree. 
+
+Each camera at a node can monitor *its parent, itself, and its immediate
+children*.
+
+Calculate the minimum number of cameras needed to monitor all nodes of
+the tree.
+
+ 
+
+*Example 1:*
+
+[[https://assets.leetcode.com/uploads/2018/12/29/bst_cameras_01.png]]
+
+#+BEGIN_EXAMPLE
+  Input: [0,0,null,0,0]
+  Output: 1
+  Explanation: One camera is enough to monitor all nodes if placed as shown.
+#+END_EXAMPLE
+
+*Example 2:*
+
+[[https://assets.leetcode.com/uploads/2018/12/29/bst_cameras_02.png]]
+#+BEGIN_EXAMPLE
+  Input: [0,0,null,0,null,0,null,null,0]
+  Output: 2
+  Explanation: At least two cameras are needed to monitor all nodes of the tree. The above image shows one of the valid configurations of camera placement.
+#+END_EXAMPLE
+
+\\
+*Note:*
+
+1. The number of nodes in the given tree will be in the
+   range =[1, 1000]=.
+2. *Every* node has value 0.
+** Topic Tags
+1. [[https://leetcode.com/tag/tree/][Tree]]
+2. [[https://leetcode.com/tag/depth-first-search/][Depth-first Search]]
+3. [[https://leetcode.com/tag/dynamic-programming/][Dynamic Programming]]
+
+** Similar Problems
+*** [[https://leetcode.com/problems/distribute-coins-in-binary-tree/][0979. Distribute Coins in Binary Tree]]
+** Companies
+*** 1. [[https://leetcode-cn.com/company/ebay/][eBay]] * 3
+*** 1. [[https://leetcode-cn.com/company/google/][谷歌 Google]] * 2
+*** 1. [[https://leetcode-cn.com/company/mihoyo/][米哈游]] * 2
+*** 2. [[https://leetcode-cn.com/company/amazon/][亚马逊 Amazon]] * 3
+*** 3. [[https://leetcode-cn.com/company/uber/][优步 Uber]] * 2
+*** 3. [[https://leetcode-cn.com/company/facebook/][Facebook 脸书]] * 0
+*** 3. [[https://leetcode-cn.com/company/tencent/][腾讯 Tencent]] * 0
+*** 3. [[https://leetcode-cn.com/company/bloomberg/][彭博 Bloomberg]] * 0
+*** 3. [[https://leetcode-cn.com/company/vmware/][VMware]] * 0
+* [[https://leetcode-cn.com/problems/binary-tree-cameras/][0968. 监控二叉树]]
+:PROPERTIES:
+:VISIBILITY: folded
+:END:
+
+#+begin_quote
+Hard U:176 D:0 AC:47.1% F:1.4859226034
+#+end_quote
+
+给定一个二叉树，我们在树的节点上安装摄像头。
+
+节点上的每个摄影头都可以监视*其父对象、自身及其直接子对象。*
+
+计算监控树的所有节点所需的最小摄像头数量。
+
+ 
+
+*示例 1：*
+
+[[https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/12/29/bst_cameras_01.png]]
+
+#+BEGIN_EXAMPLE
+  输入：[0,0,null,0,0]
+  输出：1
+  解释：如图所示，一台摄像头足以监控所有节点。
+#+END_EXAMPLE
+
+*示例 2：*
+
+[[https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/12/29/bst_cameras_02.png]]
+
+#+BEGIN_EXAMPLE
+  输入：[0,0,null,0,null,0,null,null,0]
+  输出：2
+  解释：需要至少两个摄像头来监视树的所有节点。 上图显示了摄像头放置的有效位置之一。
+#+END_EXAMPLE
+
+\\
+*提示：*
+
+1. 给定树的节点数的范围是 =[1, 1000]=。
+2. 每个节点的值都是 0。
+** Topic Tags
+1. [[https://leetcode-cn.com/tag/tree/][树]]
+2. [[https://leetcode-cn.com/tag/depth-first-search/][深度优先搜索]]
+3. [[https://leetcode-cn.com/tag/dynamic-programming/][动态规划]]
+
+** Similar Problems
+*** [[https://leetcode-cn.com/problems/distribute-coins-in-binary-tree/][0979. 在二叉树中分配硬币]]
+** Companies
+*** 1. [[https://leetcode-cn.com/company/ebay/][eBay]] * 3
+*** 1. [[https://leetcode-cn.com/company/google/][谷歌 Google]] * 2
+*** 1. [[https://leetcode-cn.com/company/mihoyo/][米哈游]] * 2
+*** 2. [[https://leetcode-cn.com/company/amazon/][亚马逊 Amazon]] * 3
+*** 3. [[https://leetcode-cn.com/company/uber/][优步 Uber]] * 2
+*** 3. [[https://leetcode-cn.com/company/facebook/][Facebook 脸书]] * 0
+*** 3. [[https://leetcode-cn.com/company/tencent/][腾讯 Tencent]] * 0
+*** 3. [[https://leetcode-cn.com/company/bloomberg/][彭博 Bloomberg]] * 0
+*** 3. [[https://leetcode-cn.com/company/vmware/][VMware]] * 0

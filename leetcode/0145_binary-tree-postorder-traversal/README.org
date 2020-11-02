@@ -1,0 +1,142 @@
+#+TITLE: 0145. Binary Tree Postorder Traversal
+#+DATE: 2020-09-29 11:44
+#+LAST_MODIFIED: 2020-09-29 11:44
+#+STARTUP: overview
+#+HUGO_WEIGHT: auto
+#+HUGO_AUTO_SET_LASTMOD: t
+#+EXPORT_FILE_NAME: 0145-binary-tree-postorder-traversal
+#+HUGO_BASE_DIR:~/G/blog
+#+HUGO_SECTION: leetcode
+#+HUGO_CATEGORIES:leetcode
+#+HUGO_TAGS: Leetcode Algorithms Stack Tree
+
+
+* [[https://leetcode.com/problems/binary-tree-postorder-traversal/][0145. Binary Tree Postorder Traversal]]
+:PROPERTIES:
+:VISIBILITY: children
+:END:
+
+#+begin_quote
+Medium U:403 D:0 AC:72.5% F:0.2951735129
+#+end_quote
+
+Given the =root= of a binary tree, return /the postorder traversal of its nodes values/.
+
+ 
+
+*Example 1:*
+
+[[https://assets.leetcode.com/uploads/2020/08/28/pre1.jpg]]
+
+#+BEGIN_EXAMPLE
+  Input: root = [1,null,2,3]
+  Output: [3,2,1]
+#+END_EXAMPLE
+
+*Example 2:*
+
+#+BEGIN_EXAMPLE
+  Input: root = []
+  Output: []
+#+END_EXAMPLE
+
+*Example 3:*
+
+#+BEGIN_EXAMPLE
+  Input: root = [1]
+  Output: [1]
+#+END_EXAMPLE
+
+*Example 4:*
+
+[[https://assets.leetcode.com/uploads/2020/08/28/pre3.jpg]]
+
+#+BEGIN_EXAMPLE
+  Input: root = [1,2]
+  Output: [2,1]
+#+END_EXAMPLE
+
+*Example 5:*
+
+[[https://assets.leetcode.com/uploads/2020/08/28/pre2.jpg]]
+
+#+BEGIN_EXAMPLE
+  Input: root = [1,null,2]
+  Output: [2,1]
+#+END_EXAMPLE
+
+ 
+
+*Constraints:*
+
+- The number of the nodes in the tree is in the range =[0, 100]=.
+- =-100 <= Node.val <= 100=
+
+ 
+
+*Follow up:*
+
+Recursive solution is trivial, could you do it iteratively?
+
+ 
+** Topic Tags
+1. [[https://leetcode.com/tag/stack/][Stack]]
+2. [[https://leetcode.com/tag/tree/][Tree]]
+
+** Similar Problems
+*** [[https://leetcode.com/problems/binary-tree-inorder-traversal/][0094. Binary Tree Inorder Traversal]]
+*** [[https://leetcode.com/problems/n-ary-tree-postorder-traversal/][0590. N-ary Tree Postorder Traversal]]
+** Companies
+*** 1. [[https://leetcode-cn.com/company/bytedance/][字节跳动]] * 6
+*** 1. [[https://leetcode-cn.com/company/microsoft/][微软 Microsoft]] * 3
+*** 1. [[https://leetcode-cn.com/company/facebook/][Facebook 脸书]] * 3
+*** 2. [[https://leetcode-cn.com/company/amazon/][亚马逊 Amazon]] * 4
+*** 2. [[https://leetcode-cn.com/company/google/][谷歌 Google]] * 2
+*** 3. [[https://leetcode-cn.com/company/alibaba/][阿里巴巴]] * 2
+*** 3. [[https://leetcode-cn.com/company/adobe/][奥多比 Adobe]] * 2
+*** 3. [[https://leetcode-cn.com/company/baidu/][百度]] * 2
+*** 3. [[https://leetcode-cn.com/company/uber/][优步 Uber]] * 2
+*** 3. [[https://leetcode-cn.com/company/microstrategy/][微策略]] * 0
+* [[https://leetcode-cn.com/problems/binary-tree-postorder-traversal/][0145. 二叉树的后序遍历]]
+:PROPERTIES:
+:VISIBILITY: folded
+:END:
+
+#+begin_quote
+Medium U:403 D:0 AC:72.5% F:0.2951735129
+#+end_quote
+
+给定一个二叉树，返回它的 /后序 /遍历。
+
+*示例:*
+
+#+BEGIN_EXAMPLE
+  输入: [1,null,2,3]  
+     1
+      \
+       2
+      /
+     3 
+
+  输出: [3,2,1]
+#+END_EXAMPLE
+
+*进阶:* 递归算法很简单，你可以通过迭代算法完成吗？
+** Topic Tags
+1. [[https://leetcode-cn.com/tag/stack/][栈]]
+2. [[https://leetcode-cn.com/tag/tree/][树]]
+
+** Similar Problems
+*** [[https://leetcode-cn.com/problems/binary-tree-inorder-traversal/][0094. 二叉树的中序遍历]]
+*** [[https://leetcode-cn.com/problems/n-ary-tree-postorder-traversal/][0590. N叉树的后序遍历]]
+** Companies
+*** 1. [[https://leetcode-cn.com/company/bytedance/][字节跳动]] * 6
+*** 1. [[https://leetcode-cn.com/company/microsoft/][微软 Microsoft]] * 3
+*** 1. [[https://leetcode-cn.com/company/facebook/][Facebook 脸书]] * 3
+*** 2. [[https://leetcode-cn.com/company/amazon/][亚马逊 Amazon]] * 4
+*** 2. [[https://leetcode-cn.com/company/google/][谷歌 Google]] * 2
+*** 3. [[https://leetcode-cn.com/company/alibaba/][阿里巴巴]] * 2
+*** 3. [[https://leetcode-cn.com/company/adobe/][奥多比 Adobe]] * 2
+*** 3. [[https://leetcode-cn.com/company/baidu/][百度]] * 2
+*** 3. [[https://leetcode-cn.com/company/uber/][优步 Uber]] * 2
+*** 3. [[https://leetcode-cn.com/company/microstrategy/][微策略]] * 0

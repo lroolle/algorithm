@@ -1,0 +1,137 @@
+#+TITLE: 20200925 Test Round I
+#+DATE: 2020-09-25 13:08
+#+STARTUP: overview
+#+EXPORT_FILE_NAME: 20200925 Test Round I
+#+HUGO_WEIGHT: auto
+#+HUGO_BASE_DIR: ~/G/blog
+#+HUGO_AUTO_SET_LASTMOD: t
+#+HUGO_SECTION: notes
+#+HUGO_CATEGORIES: notes
+#+HUGO_TAGS: notes
+
+* 20200925 Test Round I
+
+
+* Tests
+
+** Test 1
+最优策略，规则：
+1. 相邻用户不能选择同一策略；
+2. 每个用户依次选择最小资源消耗策略，如多个，选最后；
+3. 资源消耗量化为数字
+
+输出最优策略和。
+
+#+BEGIN_EXAMPLE
+15  8   17
+      \
+12  20  9
+      /
+11  7   5
+
+8 -> 9 ->  7 = 24
+
+15  8   17
+      \
+12  9   9
+      /
+11  7   5
+#+END_EXAMPLE
+
+#+BEGIN_SRC python :exports both :results output
+def min_expense(nexpences) -> int:
+    ret = 0
+    last_index = 0
+    for i, items in enumerate(nexpences):
+        current_min = items[0]
+        tmp = 0
+        for j, item in enumerate(items):
+            if current_min >= item and last_index != j:
+                tmp = j
+                current_min = item
+               
+        last_index = tmp
+        ret += current_min
+
+    return ret
+
+
+input1 = [[15, 8, 17], [12, 20, 9], [11, 7, 5]]
+input2 = [[15, 8, 8], [12, 9, 8], [11, 6, 5], [13, 3, 4]]
+
+
+print(min_expense(input1))
+print(min_expense(input2))
+#+END_SRC
+
+#+RESULTS:
+: 24
+: 25
+
+
+
+
+** Test 2
+
+求 ~s~ 偶数次 ~o~ 最长字串长度。
+
+- s: a-z
+- 0: zero o
+- circle: linked
+
+#+BEGIN_EXAMPLE
+[alolob]oalolobo
+
+alolob => 6
+#+END_EXAMPLE
+
+#+BEGIN_EXAMPLE
+lo[oxdolx->l]ooxdolx
+0 1 8 - 1 + 1
+0 2 8 - 2 + 1
+0 3 8 - 3 + 1
+
+oxdolxl => 7
+#+END_EXAMPLE
+
+#+BEGIN_EXAMPLE
+bcbcbc => 6
+#+END_EXAMPLE
+
+*** Solution I: Straight
+#+BEGIN_SRC python :exports both :results output
+s = ""
+
+if s.count("o") % 2 == 0:
+    print(len(s))
+
+max_length = 0
+
+for i in range(len(s) - 1):
+    j = (i + 1) % (len(s) - 1)
+    subs = s[i]
+    while j != i:
+        # Count Sub-string
+        subs += s[j]
+        if subs.count("o") % 2 == 0 and len(subs) > max_length:
+            max_length = len(subs)
+
+        # Circle until j == i
+        j += 1
+        if j == len(s):
+            j = 0
+
+print(max_length)
+#+END_SRC
+
+#+RESULTS:
+: 0
+: 0
+
+*** Solution II: Find Odd "O"
+
+#+BEGIN_SRC go :exports both :imports "fmt"
+func findLongestLengthOfSubstring(s string) int {
+	var p1, p2 int
+}
+#+END_SRC

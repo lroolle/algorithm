@@ -1,0 +1,99 @@
+#+TITLE: 0047. Permutations II
+#+DATE: 2020-09-18 16:41
+#+LAST_MODIFIED: 2020-09-18 16:41
+#+STARTUP: overview
+#+HUGO_WEIGHT: auto
+#+HUGO_AUTO_SET_LASTMOD: t
+#+EXPORT_FILE_NAME: 0047-permutations-ii
+#+HUGO_BASE_DIR:~/G/blog
+#+HUGO_SECTION: leetcode
+#+HUGO_CATEGORIES:leetcode
+#+HUGO_TAGS: Leetcode Algorithms Backtracking
+
+* [[https://leetcode.com/problems/permutations-ii/][0047. Permutations II]]
+:PROPERTIES:
+:VISIBILITY: children
+:END:
+
+#+begin_quote
+Medium U:421 D:0 AC:61.0% F:0.6152132079
+#+end_quote
+
+Given a collection of numbers that might contain duplicates, return all
+possible unique permutations.
+
+*Example:*
+
+#+BEGIN_EXAMPLE
+  Input: [1,1,2]
+  Output:
+  [
+    [1,1,2],
+    [1,2,1],
+    [2,1,1]
+  ]
+#+END_EXAMPLE
+** Topic Tags
+1. [[https://leetcode.com/tag/backtracking/][Backtracking]]
+
+** Similar Problems
+*** [[https://leetcode.com/problems/next-permutation/][0031. Next Permutation]]
+*** [[https://leetcode.com/problems/permutations/][0046. Permutations]]
+*** [[https://leetcode.com/problems/palindrome-permutation-ii/][0267. Palindrome Permutation II]]
+*** [[https://leetcode.com/problems/number-of-squareful-arrays/][0996. Number of Squareful Arrays]]
+** Companies
+*** 1. [[https://leetcode-cn.com/company/facebook/][Facebook 脸书]] * 5
+*** 1. [[https://leetcode-cn.com/company/bytedance/][字节跳动]] * 4
+*** 1. [[https://leetcode-cn.com/company/apple/][苹果 Apple]] * 2
+*** 1. [[https://leetcode-cn.com/company/huawei/][华为]] * 2
+*** 1. [[https://leetcode-cn.com/company/qianxin/][奇安信集团]] * 2
+*** 2. [[https://leetcode-cn.com/company/amazon/][亚马逊 Amazon]] * 6
+*** 2. [[https://leetcode-cn.com/company/google/][谷歌 Google]] * 2
+*** 3. [[https://leetcode-cn.com/company/linkedin/][领英 LinkedIn]] * 10
+*** 3. [[https://leetcode-cn.com/company/bloomberg/][彭博 Bloomberg]] * 4
+*** 3. [[https://leetcode-cn.com/company/microsoft/][微软 Microsoft]] * 3
+*** 3. [[https://leetcode-cn.com/company/uber/][优步 Uber]] * 3
+*** 3. [[https://leetcode-cn.com/company/adobe/][奥多比 Adobe]] * 3
+* [[https://leetcode-cn.com/problems/permutations-ii/][0047. 全排列 II]]
+:PROPERTIES:
+:VISIBILITY: folded
+:END:
+
+#+begin_quote
+Medium U:421 D:0 AC:61.0% F:0.6152132079
+#+end_quote
+
+给定一个可包含重复数字的序列，返回所有不重复的全排列。
+
+*示例:*
+
+#+BEGIN_EXAMPLE
+  输入: [1,1,2]
+  输出:
+  [
+    [1,1,2],
+    [1,2,1],
+    [2,1,1]
+  ]
+#+END_EXAMPLE
+** Topic Tags
+1. [[https://leetcode-cn.com/tag/backtracking/][回溯算法]]
+
+** Similar Problems
+*** [[https://leetcode-cn.com/problems/next-permutation/][0031. 下一个排列]]
+*** [[https://leetcode-cn.com/problems/permutations/][0046. 全排列]]
+*** [[https://leetcode-cn.com/problems/palindrome-permutation-ii/][0267. 回文排列 II]]
+*** [[https://leetcode-cn.com/problems/number-of-squareful-arrays/][0996. 正方形数组的数目]]
+** Companies
+*** 1. [[https://leetcode-cn.com/company/facebook/][Facebook 脸书]] * 5
+*** 1. [[https://leetcode-cn.com/company/bytedance/][字节跳动]] * 4
+*** 1. [[https://leetcode-cn.com/company/apple/][苹果 Apple]] * 2
+*** 1. [[https://leetcode-cn.com/company/huawei/][华为]] * 2
+*** 1. [[https://leetcode-cn.com/company/qianxin/][奇安信集团]] * 2
+*** 2. [[https://leetcode-cn.com/company/amazon/][亚马逊 Amazon]] * 6
+*** 2. [[https://leetcode-cn.com/company/google/][谷歌 Google]] * 2
+*** 3. [[https://leetcode-cn.com/company/linkedin/][领英 LinkedIn]] * 10
+*** 3. [[https://leetcode-cn.com/company/bloomberg/][彭博 Bloomberg]] * 4
+*** 3. [[https://leetcode-cn.com/company/microsoft/][微软 Microsoft]] * 3
+*** 3. [[https://leetcode-cn.com/company/uber/][优步 Uber]] * 3
+*** 3. [[https://leetcode-cn.com/company/adobe/][奥多比 Adobe]] * 3

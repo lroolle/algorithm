@@ -1,0 +1,189 @@
+#+TITLE: 0236. Lowest Common Ancestor of a Binary Tree
+#+DATE: 2020-09-28 14:02
+#+LAST_MODIFIED: 2020-09-28 14:55
+#+STARTUP: overview
+#+HUGO_WEIGHT: auto
+#+HUGO_AUTO_SET_LASTMOD: t
+#+EXPORT_FILE_NAME: 0236-lowest-common-ancestor-of-a-binary-tree
+#+HUGO_BASE_DIR:~/G/blog
+#+HUGO_SECTION: leetcode
+#+HUGO_CATEGORIES:leetcode
+#+HUGO_TAGS: Leetcode Algorithms Tree
+
+* Solutions
+
+** Solution I: Recursive
+
+The base problem: to find lowest common ancestor of ~p~ && ~q~
+
+1. ~p~ && ~q~ in each side(one left on right) of node ~LCA~;
+2. Node ~LCA~ is one of ~p~ / ~q~ and ~p~ or ~q~ is his chidren;
+
+#+BEGIN_EXAMPLE
+1. (in_left && in_right)
+2. (node.Val == p.Val || node.Val == q.Val) && (in_left || in_right)
+#+END_EXAMPLE
+
+The recursion ~dfs~ looks like:
+
+#+BEGIN_SRC go :exports both :imports "fmt"
+
+func lowestCommonAncestor2(root, p, q *TreeNode) *TreeNode {
+	var ret *TreeNode
+	var dfs func(*TreeNode, *TreeNode, *TreeNode) bool
+
+	dfs = func(node, p, q *TreeNode) bool {
+		if node == nil {
+			return false
+		}
+
+		in_left := dfs(node.Left, p, q)
+		in_right := dfs(node.Right, p, q)
+		if (in_left && in_right) ||
+			((node.Val == p.Val || node.Val == q.Val) && (in_left || in_right)) {
+			ret = node
+		}
+		return in_left || in_right || (node.Val == p.Val || node.Val == q.Val)
+	}
+
+	dfs(root, p, q)
+	return ret
+}
+#+END_SRC
+
+
+** Solution II: Store Parent Node
+
+* [[https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/][0236. Lowest Common Ancestor of a Binary Tree]]
+:PROPERTIES:
+:VISIBILITY: children
+:END:
+
+#+begin_quote
+Medium U:758 D:0 AC:65.4% F:0.6488695069
+#+end_quote
+
+Given a binary tree, find the lowest common ancestor (LCA) of two given
+nodes in the tree.
+
+According to the
+[[https://en.wikipedia.org/wiki/Lowest_common_ancestor][definition of
+LCA on Wikipedia]]: “The lowest common ancestor is defined between two
+nodes p and q as the lowest node in T that has both p and q as
+descendants (where we allow *a node to be a descendant of itself*).”
+
+Given the following binary tree:  root = [3,5,1,6,2,0,8,null,null,7,4]
+
+[[https://assets.leetcode.com/uploads/2018/12/14/binarytree.png]]
+
+ 
+
+*Example 1:*
+
+#+BEGIN_EXAMPLE
+  Input: root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 1
+  Output: 3
+  Explanation: The LCA of nodes 5 and 1 is 3.
+#+END_EXAMPLE
+
+*Example 2:*
+
+#+BEGIN_EXAMPLE
+  Input: root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 4
+  Output: 5
+  Explanation: The LCA of nodes 5 and 4 is 5, since a node can be a descendant of itself according to the LCA definition.
+#+END_EXAMPLE
+
+ 
+
+*Note:*
+
+- All of the nodes' values will be unique.
+- p and q are different and both values will exist in the binary tree.
+** Topic Tags
+1. [[https://leetcode.com/tag/tree/][Tree]]
+
+** Similar Problems
+*** [[https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/][0235. Lowest Common Ancestor of a Binary Search Tree]]
+*** [[https://leetcode.com/problems/smallest-common-region/][1257. Smallest Common Region]]
+** Companies
+*** 1. [[https://leetcode-cn.com/company/facebook/][Facebook 脸书]] * 24
+*** 1. [[https://leetcode-cn.com/company/amazon/][亚马逊 Amazon]] * 18
+*** 1. [[https://leetcode-cn.com/company/bytedance/][字节跳动]] * 17
+*** 1. [[https://leetcode-cn.com/company/microsoft/][微软 Microsoft]] * 8
+*** 1. [[https://leetcode-cn.com/company/google/][谷歌 Google]] * 5
+*** 2. [[https://leetcode-cn.com/company/apple/][苹果 Apple]] * 5
+*** 2. [[https://leetcode-cn.com/company/linkedin/][领英 LinkedIn]] * 4
+*** 2. [[https://leetcode-cn.com/company/oracle/][甲骨文 Oracle]] * 4
+*** 2. [[https://leetcode-cn.com/company/adobe/][奥多比 Adobe]] * 3
+*** 2. [[https://leetcode-cn.com/company/alibaba/][阿里巴巴]] * 2
+*** 3. [[https://leetcode-cn.com/company/bloomberg/][彭博 Bloomberg]] * 9
+*** 3. [[https://leetcode-cn.com/company/tencent/][腾讯 Tencent]] * 4
+*** 3. [[https://leetcode-cn.com/company/visa/][Visa]] * 3
+*** 3. [[https://leetcode-cn.com/company/salesforce/][Salesforce]] * 3
+*** 3. [[https://leetcode-cn.com/company/uber/][优步 Uber]] * 3
+* [[https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-tree/][0236. 二叉树的最近公共祖先]]
+:PROPERTIES:
+:VISIBILITY: folded
+:END:
+
+#+begin_quote
+Medium U:758 D:0 AC:65.4% F:0.6488695069
+#+end_quote
+
+给定一个二叉树, 找到该树中两个指定节点的最近公共祖先。
+
+[[https://baike.baidu.com/item/%E6%9C%80%E8%BF%91%E5%85%AC%E5%85%B1%E7%A5%96%E5%85%88/8918834?fr=aladdin][百度百科]]中最近公共祖先的定义为：“对于有根树
+T 的两个结点 p、q，最近公共祖先表示为一个结点 x，满足 x 是 p、q 的祖先且
+x 的深度尽可能大（*一个节点也可以是它自己的祖先*）。”
+
+例如，给定如下二叉树:  root = [3,5,1,6,2,0,8,null,null,7,4]
+
+[[https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/12/15/binarytree.png]]
+
+ 
+
+*示例 1:*
+
+#+BEGIN_EXAMPLE
+  输入: root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 1
+  输出: 3
+  解释: 节点 5 和节点 1 的最近公共祖先是节点 3。
+#+END_EXAMPLE
+
+*示例 2:*
+
+#+BEGIN_EXAMPLE
+  输入: root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 4
+  输出: 5
+  解释: 节点 5 和节点 4 的最近公共祖先是节点 5。因为根据定义最近公共祖先节点可以为节点本身。
+#+END_EXAMPLE
+
+ 
+
+*说明:*
+
+- 所有节点的值都是唯一的。
+- p、q 为不同节点且均存在于给定的二叉树中。
+** Topic Tags
+1. [[https://leetcode-cn.com/tag/tree/][树]]
+
+** Similar Problems
+*** [[https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-search-tree/][0235. 二叉搜索树的最近公共祖先]]
+*** [[https://leetcode-cn.com/problems/smallest-common-region/][1257. 最小公共区域]]
+** Companies
+*** 1. [[https://leetcode-cn.com/company/facebook/][Facebook 脸书]] * 24
+*** 1. [[https://leetcode-cn.com/company/amazon/][亚马逊 Amazon]] * 18
+*** 1. [[https://leetcode-cn.com/company/bytedance/][字节跳动]] * 17
+*** 1. [[https://leetcode-cn.com/company/microsoft/][微软 Microsoft]] * 8
+*** 1. [[https://leetcode-cn.com/company/google/][谷歌 Google]] * 5
+*** 2. [[https://leetcode-cn.com/company/apple/][苹果 Apple]] * 5
+*** 2. [[https://leetcode-cn.com/company/linkedin/][领英 LinkedIn]] * 4
+*** 2. [[https://leetcode-cn.com/company/oracle/][甲骨文 Oracle]] * 4
+*** 2. [[https://leetcode-cn.com/company/adobe/][奥多比 Adobe]] * 3
+*** 2. [[https://leetcode-cn.com/company/alibaba/][阿里巴巴]] * 2
+*** 3. [[https://leetcode-cn.com/company/bloomberg/][彭博 Bloomberg]] * 9
+*** 3. [[https://leetcode-cn.com/company/tencent/][腾讯 Tencent]] * 4
+*** 3. [[https://leetcode-cn.com/company/visa/][Visa]] * 3
+*** 3. [[https://leetcode-cn.com/company/salesforce/][Salesforce]] * 3
+*** 3. [[https://leetcode-cn.com/company/uber/][优步 Uber]] * 3

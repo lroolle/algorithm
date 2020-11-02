@@ -1,0 +1,184 @@
+#+TITLE: 0006. ZigZag Conversion
+#+DATE: 2020-09-24 10:45
+#+LAST_MODIFIED: 2020-09-24 10:45
+#+STARTUP: overview
+#+HUGO_WEIGHT: auto
+#+HUGO_AUTO_SET_LASTMOD: t
+#+EXPORT_FILE_NAME: 0006-zigzag-conversion
+#+HUGO_BASE_DIR:~/G/blog
+#+HUGO_SECTION: leetcode
+#+HUGO_CATEGORIES:leetcode
+#+HUGO_TAGS: Leetcode Algorithms String
+
+* Solutions
+
+** Solution I: Find Row Number by Index
+
+#+BEGIN_EXAMPLE
+ 0P  4A  8H   N  => Line1: 1   5   9      13
+ 1A3P5L7S9I I G  => Line2: 2 4 6 8 10  12 14
+ 2Y  6I 10R      => Line3: 3   7   11
+
+n = 3 + 1 = 4
+lineNum = (i % n) % 3
+#+END_EXAMPLE
+
+#+BEGIN_EXAMPLE
+ 0P    6I    12N => Line1: 0    6      12
+ 1A  5L7S 11I13G => Line2: 1  5 7   11 13
+ 2Y4A  8H10R     => Line3: 2 4  8 10
+ 3P    9I        => Line4: 3    9
+
+n = 4 + 2 = 6
+lineNum = (i % n) % 4
+#+END_EXAMPLE
+
+#+BEGIN_EXAMPLE
+=> Line1: 0     8
+=> Line2: 1   7 9
+=> Line3: 2  6
+=> Line4: 3 5
+=> Line5: 4
+
+n = 5 + 3 = 8
+lineNum = (i % n) % 5
+#+END_EXAMPLE
+
+So, in each row, there are ~n - 2~ rows within middle(except the first and last line).
+
+Then we can take the ~n = nrows + (nrows - 2)~ as the repeat number.
+
+As a result, to calculate to line number of each index.
+
+#+BEGIN_EXAMPLE
+我 谁 在
+是 我 哪
+#+END_EXAMPLE
+
+** Solution II: Walk Steps and Append Row Indexes
+
+* [[https://leetcode.com/problems/zigzag-conversion/][0006. ZigZag Conversion]]
+:PROPERTIES:
+:VISIBILITY: children
+:END:
+
+#+begin_quote
+Medium U:840 D:0 AC:48.8% F:0.7391872571
+#+end_quote
+
+The string ="PAYPALISHIRING"= is written in a zigzag pattern on a given
+number of rows like this: (you may want to display this pattern in a
+fixed font for better legibility)
+
+#+BEGIN_EXAMPLE
+  P   A   H   N
+  A P L S I I G
+  Y   I   R
+#+END_EXAMPLE
+
+And then read line by line: ="PAHNAPLSIIGYIR"=
+
+Write the code that will take a string and make this conversion given a
+number of rows:
+
+#+BEGIN_EXAMPLE
+  string convert(string s, int numRows);
+#+END_EXAMPLE
+
+*Example 1:*
+
+#+BEGIN_EXAMPLE
+  Input: s = "PAYPALISHIRING", numRows = 3
+  Output: "PAHNAPLSIIGYIR"
+#+END_EXAMPLE
+
+*Example 2:*
+
+#+BEGIN_EXAMPLE
+  Input: s = "PAYPALISHIRING", numRows = 4
+  Output: "PINALSIGYAHRPI"
+  Explanation:
+
+  P     I    N
+  A   L S  I G
+  Y A   H R
+  P     I
+#+END_EXAMPLE
+** Topic Tags
+1. [[https://leetcode.com/tag/string/][String]]
+** Companies
+*** 1. [[https://leetcode-cn.com/company/bytedance/][字节跳动]] * 14
+*** 1. [[https://leetcode-cn.com/company/amazon/][亚马逊 Amazon]] * 6
+*** 1. [[https://leetcode-cn.com/company/microsoft/][微软 Microsoft]] * 3
+*** 1. [[https://leetcode-cn.com/company/ebay/][eBay]] * 3
+*** 1. [[https://leetcode-cn.com/company/facebook/][Facebook 脸书]] * 2
+*** 2. [[https://leetcode-cn.com/company/adobe/][奥多比 Adobe]] * 3
+*** 2. [[https://leetcode-cn.com/company/apple/][苹果 Apple]] * 2
+*** 2. [[https://leetcode-cn.com/company/wish/][Wish]] * 2
+*** 3. [[https://leetcode-cn.com/company/bloomberg/][彭博 Bloomberg]] * 4
+*** 3. [[https://leetcode-cn.com/company/tencent/][腾讯 Tencent]] * 4
+*** 3. [[https://leetcode-cn.com/company/uber/][优步 Uber]] * 2
+*** 3. [[https://leetcode-cn.com/company/cootek/][触宝]] * 0
+*** 3. [[https://leetcode-cn.com/company/alibaba-damo-academy/][达摩院]] * 0
+* [[https://leetcode-cn.com/problems/zigzag-conversion/][0006. Z 字形变换]]
+:PROPERTIES:
+:VISIBILITY: folded
+:END:
+
+#+begin_quote
+Medium U:840 D:0 AC:48.8% F:0.7391872571
+#+end_quote
+
+将一个给定字符串根据给定的行数，以从上往下、从左到右进行 Z 字形排列。
+
+比如输入字符串为 ="LEETCODEISHIRING"= 行数为 3 时，排列如下：
+
+#+BEGIN_EXAMPLE
+  L   C   I   R
+  E T O E S I I G
+  E   D   H   N
+#+END_EXAMPLE
+
+之后，你的输出需要从左往右逐行读取，产生出一个新的字符串，比如：="LCIRETOESIIGEDHN"=。
+
+请你实现这个将字符串进行指定行数变换的函数：
+
+#+BEGIN_EXAMPLE
+  string convert(string s, int numRows);
+#+END_EXAMPLE
+
+*示例 1:*
+
+#+BEGIN_EXAMPLE
+  输入: s = "LEETCODEISHIRING", numRows = 3
+  输出: "LCIRETOESIIGEDHN"
+#+END_EXAMPLE
+
+*示例 2:*
+
+#+BEGIN_EXAMPLE
+  输入: s = "LEETCODEISHIRING", numRows = 4
+  输出: "LDREOEIIECIHNTSG"
+  解释:
+
+  L     D     R
+  E   O E   I I
+  E C   I H   N
+  T     S     G
+#+END_EXAMPLE
+** Topic Tags
+1. [[https://leetcode-cn.com/tag/string/][字符串]]
+** Companies
+*** 1. [[https://leetcode-cn.com/company/bytedance/][字节跳动]] * 14
+*** 1. [[https://leetcode-cn.com/company/amazon/][亚马逊 Amazon]] * 6
+*** 1. [[https://leetcode-cn.com/company/microsoft/][微软 Microsoft]] * 3
+*** 1. [[https://leetcode-cn.com/company/ebay/][eBay]] * 3
+*** 1. [[https://leetcode-cn.com/company/facebook/][Facebook 脸书]] * 2
+*** 2. [[https://leetcode-cn.com/company/adobe/][奥多比 Adobe]] * 3
+*** 2. [[https://leetcode-cn.com/company/apple/][苹果 Apple]] * 2
+*** 2. [[https://leetcode-cn.com/company/wish/][Wish]] * 2
+*** 3. [[https://leetcode-cn.com/company/bloomberg/][彭博 Bloomberg]] * 4
+*** 3. [[https://leetcode-cn.com/company/tencent/][腾讯 Tencent]] * 4
+*** 3. [[https://leetcode-cn.com/company/uber/][优步 Uber]] * 2
+*** 3. [[https://leetcode-cn.com/company/cootek/][触宝]] * 0
+*** 3. [[https://leetcode-cn.com/company/alibaba-damo-academy/][达摩院]] * 0
